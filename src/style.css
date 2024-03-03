@@ -13,12 +13,38 @@
     @apply rounded-lg;
   }
   .navigation-option {
-    @apply text-white font-pop  px-3 py-2 font-light
-          cursor-pointer  
-         text-xl hover:before:block relative;
+    @apply relative cursor-pointer  px-3 py-2 
+          font-pop  
+         text-xl text-white hover:before:block;
   }
   .navigation-title {
-    @apply flex text-white font-pop  font-bold 
-    text-4xl  gap-4 items-center;
+    @apply flex items-center gap-4  font-pop 
+    text-4xl  font-bold text-white;
   }
+
+  .mode-toggler {
+    @apply relative cursor-pointer rounded-full
+        border-2 border-gray-500 px-5 py-2;
+  }
+  .ball {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.4s ease;
+    @apply w-4 h-full  rounded-full bg-black;
+  }
+
+  .ball.dark {
+    translate: -24px;
+  }
+  /* .side {
+    background: linear-gradient(
+      303deg,
+      rgba(120, 26, 235, 1) 20%,
+      rgba(32, 32, 186, 0.8631827731092436) 65%
+    );
+  } */
+  /* .side-dark {
+    @apply dark:bg-black !important;
+  } */
 }
