@@ -1,8 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  span {
+    @apply p-0;
+  }
+}
+@layer utilities {
+  ::selection {
+    color: white;
+    background: #5e4bf1;
+  }
+
+  .cursor {
+    @apply bg-white h-7 w-1 rounded-lg;
+  }
+
+  /* @keyframes fadeIn {
+    100% {
+      translate: 10px;
+      opacity: 0;
+    }
+  } */
+}
 @layer components {
   .navigation-option::before {
     position: absolute;
@@ -37,14 +60,14 @@
   .ball.dark {
     translate: -24px;
   }
-  /* .side {
-    background: linear-gradient(
-      303deg,
-      rgba(120, 26, 235, 1) 20%,
-      rgba(32, 32, 186, 0.8631827731092436) 65%
-    );
-  } */
-  /* .side-dark {
-    @apply dark:bg-black !important;
-  } */
+  .input {
+    @apply border border-purple-100 rounded-md px-3 py-2 outline-none transition-all focus:border-purple-300;
+  }
+  .btn {
+    /* accent-color: red; */
+    @apply outline-none border px-3.5 py-2 rounded-md capitalize
+      font-pop;
+  }
+
+  
 }

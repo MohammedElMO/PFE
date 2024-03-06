@@ -1,0 +1,7 @@
+.password-err {
+  @apply text-red-400;
+}
+
+.user-err {
+  @apply text-red-400;
+}
