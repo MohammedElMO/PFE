@@ -3,5 +3,5 @@
 }
 
 .user-err {
-  @apply text-red-400;
+  @apply text-red-400  text-balance;
 }

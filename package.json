@@ -19,6 +19,9 @@
     "vite": "5.1.4"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "font-awesome": "^4.7.0",
     "jquery": "3.7.1",
     "sweetalert2": "11.10.6",
     "tailwind-merge": "2.2.1",

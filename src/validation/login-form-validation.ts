@@ -1,13 +1,17 @@
-import "../styles/utils.css"
-import { LoginT, loginSchema } from "../schema/login-schema.zod"
 import { SafeParseReturnType, ZodFormattedError } from "zod"
-import { escapeSelector } from "jquery"
+import { LoginT, loginSchema } from "../schema/login-schema.zod"
+import "../styles/utils.css"
+import { loginSuccessToater } from "../utils/toaster-notifier"
 
 const loginForm = <HTMLFormElement>document.querySelector("form")
 const password = document.querySelector("#password") as HTMLInputElement
 const username = document.querySelector("#username") as HTMLInputElement
 const loginBtn = document.querySelector(".log-in") as HTMLButtonElement
 
+loginForm.addEventListener("submit", loginHandler)
+loginBtn.addEventListener("click", () => {
+  loginSuccessToater()
+})
 password.addEventListener("input", ValidationHandler)
 username.addEventListener("input", ValidationHandler)
 const passErrMessage = document.createElement("p")
@@ -19,21 +23,24 @@ let isValidLogin: SafeParseReturnType<LoginT, LoginT>
 
 function loginHandler(e: SubmitEvent) {
   e.preventDefault()
-  console.log(formater?.password?._errors)
-  console.log(formater?.username?._errors)
-  if (isValidLogin.success) {
-    alert("login success")
-  }
+  // console.log(formater?.password?._errors)
+  // console.log(formater?.username?._errors)
+  // if (isValidLogin.success) {
+  //   alert("login success")
+  // }
+  // let data = Object.fromEntries(new FormData(loginForm))
+  // console.log(data)
 }
 
-loginForm.addEventListener("submit", loginHandler)
-
-function ValidationHandler() {
+function ValidationHandler(e: Event) {
+  e.preventDefault()
   form = new FormData(loginForm)
+  const { username: inUserName, password: inPassword } =
+    Object.fromEntries(form)
 
   isValidLogin = loginSchema.safeParse({
-    username: form.get("username"),
-    password: form.get("password"),
+    username: inUserName,
+    password: inPassword,
   })
   console.log(form.get("username"))
 
@@ -70,14 +77,7 @@ function injectErr(
   errDisplayer: HTMLParagraphElement,
   input: HTMLInputElement,
 ) {
-  // if (errors.length === 0){
-  //   console.log("Empty")
-  //   errDisplayer.textContent = ""
-
-  // }
   errDisplayer.classList.add(errClass)
   errDisplayer.textContent = errors.join("\n")
-  input.after(errDisplayer)
-  // errors.length = 0
-  // console.log(errors)
+  input.parentElement?.after(errDisplayer)
 }

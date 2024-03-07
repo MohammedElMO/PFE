@@ -22,6 +22,7 @@ export default {
       },
       colors: {
         "auth-primary": "#5e4bf1",
+        "login-primary":"#2897a0"
       },
       keyframes: {
         swing: {

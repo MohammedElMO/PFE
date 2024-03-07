@@ -61,13 +61,11 @@
     translate: -24px;
   }
   .input {
-    @apply border border-purple-100 rounded-md px-3 py-2 outline-none transition-all focus:border-purple-300;
+    @apply border border-purple-100 rounded-md px-3 py-2 outline-none  transition-all focus:border-purple-300;
   }
   .btn {
     /* accent-color: red; */
     @apply outline-none border px-3.5 py-2 rounded-md capitalize
       font-pop;
   }
-
-  
 }
