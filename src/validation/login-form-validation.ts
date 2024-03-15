@@ -1,3 +1,4 @@
+import { getUser } from "../api/fetchers/get/getUser"
 import { SafeParseReturnType } from "zod"
 import { LoginT, loginSchema } from "../schema/login-schema.zod"
 import "../styles/utils.css"
@@ -7,9 +8,6 @@ const password = document.querySelector("#password") as HTMLInputElement
 const username = document.querySelector("#username") as HTMLInputElement
 const cancelBtn = document.querySelector(".cancel") as HTMLButtonElement
 const loginBtn = document.querySelector(".log-in") as HTMLButtonElement
-// const loginSpinner = document.createElement("div")
-// loginSpinner.classList.add("login-ring")
-// loginBtn.textContent = ""
 
 const remembreMeFlag = document.querySelector(
   "#remember-me",
@@ -22,23 +20,29 @@ let form = null
 let isValidLogin: SafeParseReturnType<LoginT, LoginT>
 
 addEventListener("DOMContentLoaded", () => username.focus())
-// loginForm.addEventListener("submit", ValidationHandler)
+loginForm.addEventListener("submit", loginHandler)
 cancelBtn.addEventListener("click", resetForm)
 password.addEventListener("input", ValidationHandler)
 username.addEventListener("input", ValidationHandler)
 
-function loginHandler(e: SubmitEvent) {
+async function loginHandler(e: SubmitEvent) {
   e.preventDefault()
-  if (isValidLogin.success) alert("booom")
+
+  if (isValidLogin.success) {
+    console.log(isValidLogin.data)
+    const user = await getUser({
+      username: isValidLogin.data.username,
+      password: isValidLogin.data.password,
+    })
+    console.log(user?.data)
+    /// TODO: 1-fetching user , 2-cheking if the user exits redirect to dashboard,otherwise to error mode
+  }
 }
 
-function ValidationHandler(e: Event) {
-  console.log(e.currentTarget)
+function ValidationHandler() {
   form = new FormData(loginForm)
   const { username: inUserName, password: inPassword } =
     Object.fromEntries(form)
-  console.log(inUserName)
-  console.log(inPassword)
 
   isValidLogin = loginSchema.safeParse({
     username: inUserName,
@@ -48,7 +52,6 @@ function ValidationHandler(e: Event) {
   if (!isValidLogin.success) {
     loginBtn.disabled = true
     let formater = isValidLogin.error.format()
-    console.log(formater)
 
     if (formater.password?._errors) {
       InjectErr(

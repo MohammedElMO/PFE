@@ -1,4 +1,5 @@
 {
-  "semi": false,
-  "arrowParens": "always"
+    "semi": false,
+    "arrowParens": "always",
+    "tabWidth": 2
 }

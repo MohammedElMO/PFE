@@ -1,0 +1,15 @@
+.default-toggle {
+  @apply h-5 w-20 relative border border-gray-200 bg-white rounded-full cursor-pointer;
+}
+
+.tog {
+  transition: left 0.2s ease;
+  @apply bg-tog w-[18px] rounded-full scale-125 h-full absolute left-0;
+}
+
+.on {
+  left: 80%;
+}
+.on-p {
+  @apply bg-login-primary/30;
+}

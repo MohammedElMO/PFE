@@ -12,19 +12,12 @@
 @layer utilities {
   ::selection {
     color: white;
-    background: #5e4bf1;
+    @apply bg-login-primary;
   }
 
   .cursor {
     @apply bg-white h-7 w-1 rounded-lg;
   }
-
-  /* @keyframes fadeIn {
-    100% {
-      translate: 10px;
-      opacity: 0;
-    }
-  } */
 }
 @layer components {
   .navigation-option::before {
@@ -61,7 +54,7 @@
     translate: -24px;
   }
   .input {
-    @apply border border-purple-100 rounded-md px-3 py-2 outline-none  transition-all focus:border-purple-300;
+    @apply border border-login-primary/20 rounded-md px-3 py-2 outline-none  transition-all focus:border-login-primary/90;
   }
   .btn {
     /* accent-color: red; */

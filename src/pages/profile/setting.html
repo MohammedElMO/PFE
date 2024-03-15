@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+  </head>
+  <body>
+    <main class="flex min-h-screen">
+      <aside class="w-[15%] bg-login-primary/10 z-30"></aside>
+      <section class="container flex flex-col font-pop ap-3 ml-2">
+        <h1 class="font-semibold text-4xl text-titles">Personal Settings</h1>
+        <section class="flex flex-col gap-6 mt-5">
+          <div class="font-pop flex flex-col gap-6">
+            <h2 class="text-xl text-tog font-semibold">Select Theme</h2>
+            <p>
+              Adjuste You theme however you like to make it comfortable for you
+              to brows properly.
+            </p>
+            <form class="flex justify-around">
+              <div class="flex gap-10">
+                <div
+                  class="flex flex-col items-center ring-2 rounded-lg bg-gray-100"
+                >
+                  <div class="flex items-center">
+                    <label
+                      class="relative flex items-center p-3 rounded-full cursor-pointer"
+                      for="dark-theme"
+                      data-ripple-dark="true"
+                    >
+                      <input
+                        name="type"
+                        type="radio"
+                        class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:before:bg-gray-900 hover:before:opacity-10"
+                        id="dark-theme"
+                      />
+                      <span
+                        class="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-3.5 w-3.5"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <circle
+                            data-name="ellipse"
+                            cx="8"
+                            cy="8"
+                            r="8"
+                          ></circle>
+                        </svg>
+                      </span>
+                    </label>
+                    <label
+                      class="mt-px font-light text-gray-700 cursor-pointer select-none"
+                      for="dark-theme"
+                    >
+                      Dark Theme
+                    </label>
+                  </div>
+
+                  <div>
+                    <img
+                      src="/src/assets/dark.jpg"
+                      class="size- rounded-lg object-contain"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col items-center ring-2 rounded-lg bg-gray-100"
+                >
+                  <div class="flex items-center">
+                    <label
+                      class="relative flex items-center p-3 rounded-full cursor-pointer"
+                      for="light-theme"
+                    >
+                      <input
+                        name="type"
+                        type="radio"
+                        checked
+                        class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:before:bg-gray-900 hover:before:opacity-10"
+                        id="light-theme"
+                      />
+                      <span
+                        class="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-3.5 w-3.5"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                        >
+                          <circle
+                            data-name="ellipse"
+                            cx="8"
+                            cy="8"
+                            r="8"
+                          ></circle>
+                        </svg>
+                      </span>
+                    </label>
+                    <label
+                      class="mt-px font-light text-gray-700 cursor-pointer select-none"
+                      for="light-theme"
+                    >
+                      light-theme
+                    </label>
+                  </div>
+
+                  <div>
+                    <img
+                      src="/src/assets/light.jpg"
+                      class="size-7/ rounded-lg object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h2 class="text-xl text-tog font-semibold">General Informations</h2>
+            <div class="flex gap-3 items-center">
+              <div class="relative">
+                <input
+                  type="file"
+                  name="avatar"
+                  id="avatar"
+                  accept="image/png"
+                  hidden
+                />
+                <img
+                  src="/src/assets/login.png"
+                  class="avatar-img rounded-full size-20 object-contain relative"
+                />
+                <div
+                  class="edit-avatar cursor-pointer absolute top-0 right-0 bg-black rounded mr-2 mt-2"
+                >
+                  <svg
+                    data-slot="icon"
+                    fill="white"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    class="size-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <button
+                class="border-2 border-red-300 hover:text-black bg-red-500 text-white hover:bg-white transition-colors rounded-xl px-4 py-2"
+                type="button"
+              >
+                remove Avatar
+              </button>
+            </div>
+            <div class="flex gap-4 mt-4 items-center">
+              <div class="flex flex-col">
+                <label for="user">Full name</label>
+                <input
+                  type="text"
+                  readonly
+                  class="input"
+                  name="user"
+                  id="user"
+                />
+              </div>
+              <div class="flex flex-col">
+                <label for="user">Username</label>
+                <input
+                  type="text"
+                  readonly
+                  class="input"
+                  name="user"
+                  id="user"
+                />
+              </div>
+              <button
+                class="bg-login-primary/80 text-white p-2 rounded self-end hover:bg-login-primary"
+              >
+                Adjuste
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="flex flex-col gap-5">
+          <h2 class="text-2xl text-tog font-semibold">Permissions</h2>
+          <div class="flex gap-10">
+            <div>
+              <div class="flex flex-col gap-3">
+                <span>Remember Me</span>
+                <div class="default-toggle">
+                  <div class="tog"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <span class="">Turn on Notification</span>
+              <div class="default-toggle">
+                <div class="tog"></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <span>Geolocation</span>
+              <div class="default-toggle">
+                <div class="tog geo-switcher"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/src/index.ts"></script>
+    <script type="module" src="./settings.ts"></script>
+    <script
+      type="module"
+      src="../../utils/animations/setting-twister.ts"
+    ></script>
+    <script
+      type="module"
+      src="/src/themes/dark-light-theme-modifier.ts"
+    ></script>
+    <script type="module" src="/src/access/permission-access.ts"></script>
+  </body>
+</html>

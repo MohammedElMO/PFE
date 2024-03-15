@@ -5,3 +5,7 @@
 .user-err {
   @apply text-red-400  text-balance;
 }
+
+.selected-theme {
+  @apply ring-blue-600;
+}
