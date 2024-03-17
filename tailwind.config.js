@@ -23,10 +23,16 @@ export default {
       colors: {
         "auth-primary": "#5e4bf1",
         "login-primary": "#2897a0",
-        "secondary":"#f4edcc",
-        "tog":"#6196a6",
-        "titles":"#5f5D9c",
-        "switchers":"#a4ce9e"
+        secondary: "#f4edcc",
+        tog: "#6196a6",
+        titles: "#5f5D9c",
+        switchers: "#a4ce9e",
+        dark: {
+          "login-primary": "#2897a0dd",
+        },
+        state:{
+          "signin-btn":"#1ac1d1dd"
+        }
       },
       keyframes: {
         swing: {

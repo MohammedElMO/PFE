@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sigin</title>
+  </head>
+  <body>
+    <main class="w-screen flex flex-1 h-screen items-center justify-center">
+      <div class="sign-bg absolute inset-0 -z-10 filter blur-sm"></div>
+      <!-- <img src="/src/assets/siginBg.jpg" alt="" /> -->
+      <section class="bg-gray-50 dark:bg-gray-900 w-[50%]">
+        <div
+          class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+        >
+          <a
+            href="#"
+            class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          >
+            <img
+              class="w-8 h-8 mr-2"
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+              alt="logo"
+            />
+            Flowbite
+          </a>
+          <div
+            class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1
+                class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
+              >
+                Create an account
+              </h1>
+              <form class="space-y-4 md:space-y-6">
+                <div class="flex gap-4">
+                  <div class="flex flex-col">
+                    <label
+                      for="first name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      first name</label
+                    >
+                    <input
+                      type="text"
+                      name="firstName"
+                      id="firstName"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="firstName"
+                      required=""
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label
+                      for="first name"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      last name</label
+                    >
+                    <input
+                      type="text"
+                      name="lastName"
+                      id="lastName"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="lastName"
+                      required=""
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Your email</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="name@company.com"
+                    required=""
+                  />
+                </div>
+                <div class="relative">
+                  <label
+                    for="password"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="••••••••"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required=""
+                  />
+                  <div
+                    class="eye absolute bottom-[10px] mr-3 right-0 w-fit cursor-pointer rounded"
+                  >
+                    <img src="/src/assets/unsee.svg" class="size-5" />
+                  </div>
+                </div>
+                <div class="relative">
+                  <label
+                    for="confirm-password"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Confirm password</label
+                  >
+                  <input
+                    type="password"
+                    name="confirm-password"
+                    id="confirm-password"
+                    placeholder="••••••••"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required=""
+                  />
+                  <div
+                    class="eye absolute bottom-[10px] mr-3 right-0 w-fit cursor-pointer rounded"
+                  >
+                    <img src="/src/assets/unsee.svg" class="size-5 confirm" />
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input
+                      id="terms"
+                      aria-describedby="terms"
+                      type="checkbox"
+                      class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                      required=""
+                    />
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label
+                      for="terms"
+                      class="font-light text-gray-500 dark:text-gray-300"
+                      >I accept the
+                      <a
+                        class="font-medium text-teal-600 hover:underline dark:text-teal-500"
+                        href="#"
+                        >Terms and Conditions</a
+                      ></label
+                    >
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full text-white bg-teal-600 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                >
+                  Create an account
+                </button>
+                <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                  Already have an account?
+                  <a
+                    href="#"
+                    class="font-medium text-teal-500 hover:underline dark:text-teal-500"
+                    >Login here</a
+                  >
+                </p>
+                <div class="toggler">
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer" />
+                    <div
+                      class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-1 peer-focus:ring-gray-300 dark:peer-focus:ring-[#1f2937] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-gray-50 dark:after:bg-[#1f2937] after:border-gray-300 after:border after:rounded-full after:size-5 after:transition-all dark:border-[#fff] peer-checked:bg-[#fff]"
+                    ></div>
+                    <span
+                      class="ms-3 text-sm font-medium text-gray-500 dark:text-white"
+                      >light theme</span
+                    >
+                  </label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- <script type="module" type="text/javascript">
+      import { Animation } from "@lottiefiles/lottie-js"
+
+      async function loadAnimation() {
+        const anim = await Animation.fromJSON(
+          "/src/assets/animation/loader.json",
+        )
+
+        console.log("Frame Rate", anim.frameRate)
+        console.log("Number of Layers", anim.layers.length)
+        console.log(anim.getColors())
+
+        // Manipulate animation
+        anim.name = "Woohoo"
+        anim.width = 512
+        anim.height = 512
+
+        const woohooLottie = JSON.stringify(anim)
+        console.log(woohooLottie)
+      }
+      Promise.resolve(loadAnimation())
+
+      if (window.addEventListener) {
+        window.addEventListener("load", loadAnimation, false) //W3C
+      } else {
+        window.attachEvent("onload", startClock) //IE
+      }
+    </script> -->
+    <script type="module" src="./index.ts"></script>
+    <script type="module" src="/src/style.css"></script>
+  </body>
+</html>

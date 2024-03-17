@@ -22,9 +22,7 @@
           />
           <h1
             class="absolute flex gap-2 text-2xl md:text-lg lg:text-3xl xl:text-4xl z-10 text-wrap bg-[#2897a0] text-white font-medium effect"
-          >
-            <!-- Welcome To Pharmacy Net -->
-          </h1>
+          ></h1>
         </div>
       </section>
       <section class="font-pop shadow-none lg:w-[50%] w-full lg:shadow-lg">
@@ -33,7 +31,6 @@
             class="text-3xl lg:text-5xl text-wrap mt-4 lg:mt-0 font-semibold text-center text-login-primary"
           >
             Log in To Your Account
-            <!-- <i class="fa-solid"></i> -->
           </h1>
           <form
             class="flex flex-col justify-center items-center gap-10 h-[50%]"
@@ -44,7 +41,7 @@
                 class="capitalize flex gap-2 text-lg items-center"
               >
                 <img
-                  src="../../assets/user-circle-svgrepo-com.svg"
+                  src="/src/assets/user-circle-svgrepo-com.svg"
                   class="size-5"
                   alt="lock icon"
                 />
@@ -58,6 +55,7 @@
                   name="username"
                   class="input w-full"
                   placeholder="User name"
+                  autocomplete="username"
                 />
               </div>
             </div>
@@ -67,7 +65,7 @@
                 class="capitalize flex gap-2 text-lg items-center"
               >
                 <img
-                  src="../../assets/lock-alt-svgrepo-com.svg"
+                  src="/src/assets/lock-alt-svgrepo-com.svg"
                   class="size-5"
                   alt="lock icon"
                 />
@@ -75,7 +73,7 @@
               >
               <div class="w-full relative">
                 <input
-                  autocomplete="on"
+                  autocomplete="current-password"
                   type="password"
                   id="password"
                   class="input w-full"
@@ -116,7 +114,7 @@
           <div class="self-center text-xl mb-3">
             create an account
             <a
-              href="../auth/signin.html"
+              href="../sigin/signin.html"
               class="font-medium text-login-primary underline"
               >SignIn?</a
             >
