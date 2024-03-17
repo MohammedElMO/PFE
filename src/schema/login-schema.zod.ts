@@ -5,11 +5,9 @@ export const loginSchema = z.object({
     .string({
       required_error: "password should not be empty",
     })
-    .min(9, {
-      message: "password should be greater than 9 characters ",
-    })
-    .max(18, {
-      message: "password should be less than 18 characters ",
+    .trim()
+    .min(1, {
+      message: "password must be supplied",
     }),
   username: z
     .string({

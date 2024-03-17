@@ -1,30 +1,20 @@
 import Swal from "sweetalert2"
 
-export const loginSuccessToater = () => {
-  // const toast = Swal.mixin({
-  //   toast: true,
-  //   position: "top-end",
-  //   showConfirmButton: false,
-  //   timer: 2000,
-  //   timerProgressBar: true,
-  //   didOpen: (toast) => {
-  //     toast.onmouseenter = Swal.stopTimer
-  //     toast.onmouseleave = Swal.resumeTimer
-  //   },
-  // })
-  // toast.fire({
-  //   icon: "success",
-  //   title: "You've Log in successfully!",
-  // })
-  Swal.fire({
-    text: "You've Log in successfully!",
-    icon: "success",
-    // iconColor: "#5e4bf1dd",
+export const loginToater = (
+  congrats: string,
+  iconType: "error" | "success" | "warning" | "question" | "info",
+  iconColor = "",
+) => {
+  return Swal.fire({
+    text: congrats,
+    icon: iconType,
+    iconColor,
     backdrop: true,
     // toast: true,
     // position: "top-right",
-    timerProgressBar: true,
-    allowEscapeKey: true,
+    // timerProgressBar: true,
+    allowEscapeKey: false,
+    allowOutsideClick: false,
     focusConfirm: true,
   })
 }

@@ -1,11 +1,11 @@
-import { getUser } from "../api/fetchers/get/getUser"
 import { SafeParseReturnType } from "zod"
 import { LoginT, loginSchema } from "../schema/login-schema.zod"
 import "../styles/utils.css"
+import { loginHandler } from "../api/authentication-api/login.user"
 
 const loginForm = document.querySelector("form") as HTMLFormElement
-const password = document.querySelector("#password") as HTMLInputElement
-const username = document.querySelector("#username") as HTMLInputElement
+export const password = document.querySelector("#password") as HTMLInputElement
+export const username = document.querySelector("#username") as HTMLInputElement
 const cancelBtn = document.querySelector(".cancel") as HTMLButtonElement
 const loginBtn = document.querySelector(".log-in") as HTMLButtonElement
 
@@ -20,24 +20,10 @@ let form = null
 let isValidLogin: SafeParseReturnType<LoginT, LoginT>
 
 addEventListener("DOMContentLoaded", () => username.focus())
-loginForm.addEventListener("submit", loginHandler)
+loginForm.addEventListener("submit", (e) => loginHandler(e, isValidLogin))
 cancelBtn.addEventListener("click", resetForm)
 password.addEventListener("input", ValidationHandler)
 username.addEventListener("input", ValidationHandler)
-
-async function loginHandler(e: SubmitEvent) {
-  e.preventDefault()
-
-  if (isValidLogin.success) {
-    console.log(isValidLogin.data)
-    const user = await getUser({
-      username: isValidLogin.data.username,
-      password: isValidLogin.data.password,
-    })
-    console.log(user?.data)
-    /// TODO: 1-fetching user , 2-cheking if the user exits redirect to dashboard,otherwise to error mode
-  }
-}
 
 function ValidationHandler() {
   form = new FormData(loginForm)
