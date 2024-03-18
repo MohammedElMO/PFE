@@ -11,5 +11,5 @@
 }
 
 .err {
-  @apply text-red-400 w-[20ch];
+  @apply text-red-400 w-[25ch];
 }

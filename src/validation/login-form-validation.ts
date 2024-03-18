@@ -13,61 +13,43 @@ const remembreMeFlag = document.querySelector(
   "#remember-me",
 ) as HTMLInputElement
 
-const passErrMessage = document.createElement("p")
-const userErrMessage = document.createElement("p")
+const err = document.createElement("p")
 loginBtn.disabled = true
-let form = null
-let isValidLogin: SafeParseReturnType<LoginT, LoginT>
+let formData = null
+let validCredentials: SafeParseReturnType<LoginT, LoginT>
 
 addEventListener("DOMContentLoaded", () => username.focus())
-loginForm.addEventListener("submit", (e) => loginHandler(e, isValidLogin))
+loginForm.addEventListener("submit", (e) => loginHandler(e, validCredentials))
 cancelBtn.addEventListener("click", resetForm)
-password.addEventListener("input", ValidationHandler)
-username.addEventListener("input", ValidationHandler)
+password.addEventListener("input", (e) =>
+  ValidationHandler("password", e.target as HTMLInputElement),
+)
+username.addEventListener("input", (e) =>
+  ValidationHandler("username", e.target as HTMLInputElement),
+)
 
-function ValidationHandler() {
-  form = new FormData(loginForm)
-  const { username: inUserName, password: inPassword } =
-    Object.fromEntries(form)
+function ValidationHandler(
+  targetLabel: "username" | "password",
+  target: HTMLInputElement,
+) {
+  formData = new FormData(loginForm)
+  const credentials = Object.fromEntries(formData)
 
-  isValidLogin = loginSchema.safeParse({
-    username: inUserName,
-    password: inPassword,
-  })
+  validCredentials = loginSchema.safeParse(credentials)
 
-  if (!isValidLogin.success) {
-    loginBtn.disabled = true
-    let formater = isValidLogin.error.format()
-
-    if (formater.password?._errors) {
-      InjectErr(
-        formater.password._errors,
-        "password-err",
-        passErrMessage,
-        password,
-      )
-    } else {
-      passErrMessage.textContent = ""
-    }
-
-    if (formater.username?._errors) {
-      InjectErr(
-        formater.username?._errors,
-        "user-err",
-        userErrMessage,
-        username,
-      )
-    } else {
-      userErrMessage.textContent = ""
-    }
+  if (!validCredentials.success) {
+    let rules = validCredentials.error.format()
+    if (rules[targetLabel]?._errors) {
+      loginBtn.disabled = true
+      InjectError(rules[targetLabel]!._errors, "user-err", err, target)
+    } else err.remove()
   } else {
+    err.remove()
     loginBtn.disabled = false
-    passErrMessage.textContent = ""
-    userErrMessage.textContent = ""
   }
 }
 
-function InjectErr(
+function InjectError(
   errors: string[],
   errClass: string,
   errDisplayer: HTMLParagraphElement,
@@ -79,10 +61,8 @@ function InjectErr(
 }
 
 function resetForm() {
-  passErrMessage.textContent = ""
-  userErrMessage.textContent = ""
   loginBtn.disabled = true
-  form = null
+  formData = null
   username.value = ""
   password.value = ""
   remembreMeFlag.checked = false
