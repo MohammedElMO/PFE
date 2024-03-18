@@ -1,7 +1,6 @@
 import "../../../validation/login-form-validation.ts"
-import "../../../utils/animations/input-visibility-switcher.ts"
 import "../../../utils/animations/awing-effect.ts"
 import "../../../notifications/toaster-notifier.ts"
 import "../../../schema/login-schema.zod.ts"
 import "../../../styles/spinners.css"
-import "../../../style.css"
+import "@/style.css"

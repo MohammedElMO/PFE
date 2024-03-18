@@ -5,6 +5,7 @@ export default {
     "src/components/**/*.html",
     "src/utils/**/*.ts",
     "src/pages/**/*.html",
+    "src/pages/auth/**/*.html",
   ],
   darkMode: "selector",
 
@@ -30,9 +31,9 @@ export default {
         dark: {
           "login-primary": "#2897a0dd",
         },
-        state:{
-          "signin-btn":"#1ac1d1dd"
-        }
+        state: {
+          "signin-btn": "#1ac1d1dd",
+        },
       },
       keyframes: {
         swing: {

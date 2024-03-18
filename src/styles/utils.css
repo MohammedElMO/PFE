@@ -9,3 +9,7 @@
 .selected-theme {
   @apply ring-blue-600;
 }
+
+.err {
+  @apply text-red-400 w-[20ch];
+}

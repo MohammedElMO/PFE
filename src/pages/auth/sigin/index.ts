@@ -4,6 +4,9 @@ import { loadToken } from "../../../utils/local-storage/loadToken"
 import { saveToken } from "../../../utils/local-storage/saveTocken"
 import "../../../utils/animations/input-visibility-switcher"
 import "@/styles/bg-auth.css"
+import "../../../validation/siginUp-form-validation"
+
+import { switchVisibility } from "../../../utils/animations/input-visibility-switcher"
 document.querySelector(".loader")?.addEventListener("click", async () => {
   const profile = await apiClient.get("/profile/" + loadToken("userId"), {
     headers: {
@@ -44,3 +47,14 @@ toggler?.addEventListener("change", (e) => {
 })
 
 console.log(window.location.pathname)
+
+const confirmPassword = document.querySelector(
+  "#confirm-password",
+) as HTMLInputElement
+const eyeConfirm = document.querySelector(
+  ".eye img.confirm",
+) as HTMLImageElement
+
+eyeConfirm.addEventListener("click", (e) =>
+  switchVisibility(confirmPassword, e.target as HTMLImageElement),
+)
