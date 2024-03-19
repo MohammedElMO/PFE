@@ -10,9 +10,25 @@ export const loginToater = (
     icon: iconType,
     iconColor,
     backdrop: true,
-    // toast: true,
-    // position: "top-right",
-    // timerProgressBar: true,
+
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    focusConfirm: true,
+  })
+}
+export const SignupToater = (
+  congrats: string,
+  iconType: "error" | "success" | "warning" | "question" | "info",
+  iconColor = "",
+  position: "top-right",
+) => {
+  return Swal.fire({
+    text: congrats,
+    icon: iconType,
+    iconColor,
+    backdrop: true,
+    toast: true,
+    position,
     allowEscapeKey: false,
     allowOutsideClick: false,
     focusConfirm: true,

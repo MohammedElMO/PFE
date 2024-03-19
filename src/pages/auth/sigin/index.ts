@@ -46,15 +46,13 @@ toggler?.addEventListener("change", (e) => {
   }
 })
 
-console.log(window.location.pathname)
+// const confirmPassword = document.querySelector(
+//   "#confirm-password",
+// ) as HTMLInputElement
+// const eyeConfirm = document.querySelector(
+//   ".eye img.confirm",
+// ) as HTMLImageElement
 
-const confirmPassword = document.querySelector(
-  "#confirm-password",
-) as HTMLInputElement
-const eyeConfirm = document.querySelector(
-  ".eye img.confirm",
-) as HTMLImageElement
-
-eyeConfirm.addEventListener("click", (e) =>
-  switchVisibility(confirmPassword, e.target as HTMLImageElement),
-)
+// eyeConfirm.addEventListener("click", (e) =>
+//   switchVisibility(confirmPassword, e.target as HTMLImageElement),
+// )
