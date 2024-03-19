@@ -1,10 +1,7 @@
 import { SafeParseReturnType } from "zod"
 import "../styles/utils.css"
 import { signupSchema, SignUp } from "../schema/signup-schema.zod"
-import { stat } from "fs"
-const cross = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-<path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>`
+import { signUpUser } from "../api/authentication-api/sign-up.user"
 
 const signUp = document.querySelector(".sign-up") as HTMLFormElement
 const firstName = document.querySelector("#firstName") as HTMLInputElement
@@ -30,7 +27,7 @@ let emailErr = document.createElement("p")
 
 signUp.addEventListener("submit", (e) => {
   e.preventDefault()
-  if (validCredentials.success && validConfirmation) alert("sucu")
+  if (validCredentials.success && validConfirmation) signUpUser(validCredentials)
 })
 const checkConfermation = (input: HTMLInputElement) => {
   if (password.value !== (confirmPassword as HTMLInputElement).value) {
