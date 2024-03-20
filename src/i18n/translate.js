@@ -1,9 +1,9 @@
-import translation from "./translation";
+import translation from "./data-translation";
 
 // start language btn
 let btn_lang = document.getElementById("langauge_btn");
-btn_lang.addEventListener("click", () => {
-  switch (btn_lang.innerHTML.trim()) {
+btn_lang?.addEventListener("click", () => {
+  switch (btn_lang?.innerHTML.trim()) {
     case "Fr":
       btn_lang.innerHTML = "Ar";
       setLanguage("ar");
@@ -19,6 +19,7 @@ btn_lang.addEventListener("click", () => {
       break;
   }
 });
+
 function setLanguage(lang) {
   const elements = document.querySelectorAll("[data_i18n]");
   elements.forEach((ele) => {
