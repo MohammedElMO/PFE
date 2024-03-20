@@ -1,4 +1,6 @@
 import "@/styles/setting-togglers.css"
+import { getUserProfile } from "../../api/fetchers/get/getUserProfile"
+import { loadToken } from "../../utils/local-storage/loadToken"
 
 const EditImage = document.querySelector(".edit-avatar") as HTMLDivElement
 
@@ -14,3 +16,14 @@ function UploadAvatar() {
     // avatarImg.src = path
   })
 }
+
+const lastName = document.querySelector(".lastName") as HTMLInputElement
+const firstName = document.querySelector(".firstName") as HTMLInputElement
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const profile = await getUserProfile(loadToken("userId")!)
+  console.log(profile)
+  // const [first, last] = profile?.response.fullName.split(" ")
+  // firstName.value = first
+  // lastName.value = last
+})

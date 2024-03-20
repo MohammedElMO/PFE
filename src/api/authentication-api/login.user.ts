@@ -10,38 +10,31 @@ import { saveToken } from "../../utils/local-storage/saveTocken"
 
 // password9012
 // Olivia Wilson
-export const loginHandler = async (
-  e: SubmitEvent,
-  loginvalid: SafeParseReturnType<LoginT, LoginT>,
-) => {
-  e.preventDefault()
+export const loginHandler = async (loginvalid: LoginT) => {
+  const state = await postUser({
+    username: loginvalid.username,
+    password: loginvalid.password,
+  })
 
-  if (loginvalid.success) {
-    const state = await postUser({
-      username: loginvalid.data.username,
-      password: loginvalid.data.password,
-    })
+  switch (state?.state) {
+    case "failed":
+      loginToater("Credential are incorrect \n Try again!", "error")
+      reset([password, username])
+      break
+    case "success":
+      let conformation = await loginToater(
+        "You've Log in successfully!",
+        "success",
+      )
+      saveToken("accessToken", state.response.accessToken)
+      saveToken("userId", state.response.userId)
 
-    switch (state?.state) {
-      case "failed":
-        loginToater("Credential are incorrect \n Try again!", "error")
-        reset([password, username])
-        break
-      case "success":
-        let conformation = await loginToater(
-          "You've Log in successfully!",
-          "success",
-        )
-        saveToken("accessToken", state.response.accessToken)
-        saveToken("userId", state.response.userId)
+      if (conformation.isConfirmed) {
+        redirect(Routes.MAIN_PAGE)
+      }
+      break
 
-        if (conformation.isConfirmed) {
-          redirect(Routes.MAIN_PAGE)
-        }
-        break
-
-      default:
-        break
-    }
+    default:
+      break
   }
 }
