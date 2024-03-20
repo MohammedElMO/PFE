@@ -2,6 +2,198 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/svg+xml" href="image/logo2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Pharmacy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Anta&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet" />
+      <!-- font logo -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Anta&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <!-- <link rel="manifest" href="./src/components/sideBare.html" /> -->
+    <link rel="stylesheet" href="all.min.css" />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  </head>
+  <body class=" items-start flex-row ">
+    <!-- start home page -->
+    <div class="home flex flex-row  justify-center  h-screen  w-screen max-[430px]:flex-col-reverse max-[430px]:justify-between" >
+      <aside class="shadow-lg flex flex-col p-3 justify-between max-[430px]:p-0 ">
+        <div class="top">
+        <div class="logo flex items-center gap-3 ml-2 mb-9 mt-2 max-[768px]:w-fit max-[430px]:hidden">
+          <img src="image/Untitled-2.png" style="width: 33px" alt="" class="hidden max-[768px]:block" />
+          <h3
+            class="fill-slate-200 text-3xl font-semibold text-gray-400  max-[768px]:hidden"
+            data_i18n="title"
+            data-mode="title" style="font-family: 'Pacifico', cursive;">
+            PhrmacyMar
+          </h3>
+        </div>
+        <ul  class="max-[430px]:fixed max-[430px]:bottom-0 max-[430px]:w-screen max-[430px]:flex max-[430px]:justify-around min-[430px]:shadow-none "   >        
+          <li class=" relative max-[768px]:w-fit hidden max-[430px]:block">
+            <a
+              href="#"
+              class="flex gap-4 text-bae hover:bg-zinc-200 rounded-lg  font-normal py-2  px-4 lg:-ml-2">
+              <span
+                ><i class="fa-solid fa-house"></i>
+              </span>
+            </a>
+          </li>
+          <li class=" relative max-[768px]:w-fit">
+            <a
+              href="#"
+              class="flex gap-4 text-bae hover:bg-zinc-200 rounded-lg  font-normal py-2  px-4 lg:-ml-2">
+              <span
+                ><i class="fa-solid fa-earth-americas" ></i>
+              </span>
+              <span data_i18n="maps" class=" -mr-1 font-normal flex content-center max-[768px]:hidden"
+                >Maps</span
+              >
+            </a>
+          </li>
+          <li class=" relative max-[768px]:w-fit">
+            <a
+              href="#"
+              class="flex gap-4 text-base hover:bg-zinc-200 rounded-lg font-normal py-2 px-4 lg:-ml-2">
+              <span
+                ><i class="fa-solid fa-capsules" ></i>
+              </span>
+              <span data_i18n="medicament" class=" -mr-1 font-normal flex content-center max-[768px]:hidden"
+                >Médicament</span
+              >
+            </a>
+          </li>
+          <li class=" relative max-[768px]:w-fit max-[430px]:hidden">
+            <a
+              href="#"
+              class="flex gap-4 text-base hover:bg-zinc-200 rounded-lg  font-normal py-2 px-4 lg:-ml-2">
+              <span>
+                <i class="fa-solid fa-tree-city" ></i>
+              </span>
+              <span data_i18n="ville" class=" -mr-1 font-normal flex content-center max-[768px]:hidden"
+                >Ville</span
+              >
+            </a>
+          </li>
+          <li class=" relative favorite  max-[768px]:w-[3.1rem] max-[430px]:hidden">
+            <a
+              
+              class="flex gap-4 text-base hover:bg-zinc-200 rounded-lg  font-normal py-2 px-4 lg:-ml-2">
+              <span>
+                <i class="fa-solid fa-star" ></i>
+              </span>
+              <span data_i18n="favorite" class=" -mr-1 font-normal flex content-center max-[768px]:hidden  "
+                >Favorite </span>
+                <span>
+                  <i class="fa-solid fa-chevron-down ml-3 max-[768px]:hidden "></i>
+                </span>
+            </a>
+          </li>
+          <li class=" relative max-[768px]:w-fit hidden max-[430px]:block">
+            <a
+              href="#"
+              class="flex gap-4 text-bae hover:bg-zinc-200 rounded-lg  font-normal py-2  px-4 lg:-ml-2">
+              <span
+                ><i class="fa-solid fa-bars"></i>
+              </span>
+            </a>
+          </li>
+          <div class="fav_element absolute p-3 hidden max-[768px]:bg-white max-[768px]:rounded-xl z-10 max-[768px]:shadow-md">
+            <ul>
+              <li class=" relative ">
+                <a
+                href="#"
+                class="flex gap-4 text-base hover:bg-zinc-200 rounded-lg  font-normal py-2 px-4 lg:-ml-2">
+                <span>
+                </span>
+                <span data_i18n="favorite_phar" class=" -mr-1 font-normal flex content-center"
+                  >Pharmacie</span>
+              </a>
+            </li>
+            <li class=" relative">
+              <a
+                href="#"
+                class="flex gap-4 text-base hover:bg-zinc-200 rounded-lg  font-normal py-2 px-4 lg:-ml-2">
+                <span>
+                </span>
+                <span data_i18n="favorite_phar" class=" -mr-1 font-normal flex content-center"
+                  >Medicament<span>
+              </a>
+            </li>
+
+          </ul>
+          </div>
+
+        </ul>    
+        </div>
+
+        
+          <div class="flex  flex-col max-[430px]:hidden">
+            <button
+            data_i18n="sign_in"
+                    class="signin max-[768px]:m-0 max-[768px]:mb-1 max-[768px]:text-xs  bg-transparent text-gray-500 p-1 font-normal rounded border border-gray-300 mb-2 mx-4 hover:bg-gray-100 hover:text-gray-700">Sign In</button>
+            <button
+                    data_i18n="sign_up"
+                    class="singup text-gray-200 max-[768px]:m-0 max-[768px]:text-xs bg-blue-400 p-1 rounded font-normal hover:bg-blue-500  mx-4 hover:text-gray-100">Sign Up</button>
+          </div>
+        </aside>
+        
+        
+        <div class="content_home w-full p-4 mt-2">
+          <nav class="flex justify-between gap-7 w-full items-center px-2">
+            <h3
+            class="fill-slate-200 text-3xl font-semibold text-gray-400 hidden  max-[430px]:block  " 
+            data_i18n="title"
+            data-mode="title" style="font-family: 'Pacifico', cursive;">
+            PhrmacyMar
+          </h3>
+            <ul class="flex gap-3 font-normal text-xl  max-[430px]:hidden">
+              <li data_i18n="home">Home</li>
+              <li data_i18n="products">Product</li>
+              <li data_i18n="about">About</li>
+            </ul>
+          <button
+          id="langauge_btn"
+          class="text-white hover:bg-blue-500 hover:text-gray-100">
+          Fr
+        </button>
+        </nav>
+        <div
+          class="info-body flex justify-between absolute items-center  px-10" style="top: 20%;">
+          <div class="info text-gray-800 max-[730px]:w-full">
+            <h1
+              class="title_info pb-6"
+              data_i18n="header_info"
+              >
+              Bienvenue Dans Mypharmacy
+            </h1>
+            <p data_i18n="info_text" data-mode="info_text">
+              Votre destination pour la gestion efficace des pharmacies.
+              Découvrez les pharmacies à proximité et la disponibilité des
+              médicaments. Priorité à votre santé et à votre bien-être
+            </p>
+            <div class="flex gap-5 mt-5 ">
+              <button class="info_btn max-[430px]:text-xs max-[430px]:px-1 max-[430px]:py-2 " data_i18n="map"  >
+                Map
+              </button>
+              <button class="info_btn max-[430px]:text-xs max-[430px]:px-1 max-[430px]:py-2" data_i18n="descktop">
+                descktop App
+              </button>
+            </div>
+          </div>
+          <div class="image-main w-1/2 max-[730px]:hidden ">
+            <img src="image/imageLoad.png" class="w-full" alt="" />
+          </div>
+        </div>
+      </div>
+
+      </div>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <title>Vite + TS</title>
@@ -14,7 +206,10 @@
         class="outline p-3 outline-4 m-3 outline-green-200 text-2xl"
         >auth</a
       >
+
     </div>
-    <script type="module" src="/src/index.ts"></script>
+    <!-- end home page -->
+
+    <script src="main.js" type="module"></script>
   </body>
 </html>
