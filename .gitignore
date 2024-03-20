@@ -6,11 +6,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
+build
 node_modules
 dist
 dist-ssr
 *.local
+*.sh
 
 # Editor directories and files
 .vscode/*

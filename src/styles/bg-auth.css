@@ -1,0 +1,5 @@
+.sign-bg {
+  background-image: url("/src/assets/siginBg.jpg");
+  background-size: contain;
+  background-origin: content-box;
+}

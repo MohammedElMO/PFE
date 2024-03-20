@@ -1,8 +1,25 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  span {
+    @apply p-0;
+  }
+}
+@layer utilities {
+  ::selection {
+    color: white;
+    @apply bg-login-primary;
+  }
+
+  .cursor {
+    @apply bg-white h-7 w-1 rounded-lg;
+  }
+}
 @layer components {
   .navigation-option::before {
     position: absolute;
@@ -13,13 +30,37 @@
     @apply rounded-lg;
   }
   .navigation-option {
-    @apply text-white font-pop  px-3 py-2 font-light
-          cursor-pointer  
-         text-xl hover:before:block relative;
+    @apply relative cursor-pointer  px-3 py-2 
+          font-pop  
+         text-xl text-white hover:before:block;
   }
   .navigation-title {
-    @apply flex text-white font-pop  font-bold 
-    text-4xl  gap-4 items-center;
+    @apply flex items-center gap-4  font-pop 
+    text-4xl  font-bold text-white;
+  }
+
+  .mode-toggler {
+    @apply relative cursor-pointer rounded-full
+        border-2 border-gray-500 px-5 py-2;
+  }
+  .ball {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 0.4s ease;
+    @apply w-4 h-full  rounded-full bg-black;
+  }
+
+  .ball.dark {
+    translate: -24px;
+  }
+  .input {
+    @apply border border-login-primary/20 rounded-md px-3 py-2 outline-none  transition-all focus:border-login-primary/90;
+  }
+  .btn {
+    /* accent-color: red; */
+    @apply outline-none border px-3.5 py-2 rounded-md capitalize
+      font-pop;
   }
 }
 ::-webkit-scrollbar {

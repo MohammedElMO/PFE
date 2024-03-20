@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sideBare</title>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="../style.css" />
   </head>
 
   <body>
     <!-- Side Bar with Dark Mode template -->
     <aside
-      class=" decoration-sky-600 min-h-screen fixed left-0 py-3 justify-center"
+
+      class="main-aside bg-side dark:bg-red-300 fixed left-0 flex min-h-screen justify-center py-3 transition-all"
+
     >
-      <ul class="px-6 py-5 w-[100%] flex flex-col justify-around">
+      <ul class="flex w-[100%] flex-col justify-evenly px-6 py-5">
         <div class="navigation-title">
           <svg
             version="1.1"
@@ -22,7 +23,7 @@
             xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 35.219 35.219"
             xml:space="preserve"
-            class="size-12"
+            class="size-12 -rotate-90"
           >
             <g>
               <path
@@ -40,16 +41,98 @@
           </svg>
           Essay Medicine
         </div>
-        <li class="navigation-option">Map</li>
-        <li class="navigation-option">Starred Places</li>
-        <li class="navigation-option">liked pharmacy</li>
-        <li class="navigation-option">Profile</li>
-        <li class="flex flex-col gap-2 items-start">
-          <span class="text-gray-100 opacity-70 px-3 text-xl mb-8"
+        <li class="navigation-option flex items-center gap-4 font-semibold">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            class="size-10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14 8C14 9.10457 13.1046 10 12 10C10.8954 10 10 9.10457 10 8C10 6.89543 10.8954 6 12 6C13.1046 6 14 6.89543 14 8Z"
+              stroke="#fff"
+              stroke-width="1.5"
+            />
+            <path
+              d="M12 20.6875L12.4939 21.2519C12.6566 21.1095 12.75 20.9038 12.75 20.6875C12.75 20.4712 12.6566 20.2655 12.4939 20.1231L12 20.6875ZM21.4263 14.4122C21.1016 14.1549 20.6299 14.2096 20.3727 14.5342C20.1155 14.8589 20.1701 15.3306 20.4948 15.5878L21.4263 14.4122ZM3.50523 15.5878C3.82989 15.3306 3.88455 14.8589 3.62731 14.5342C3.37008 14.2096 2.89836 14.1549 2.5737 14.4122L3.50523 15.5878ZM10.5 19.375L10.9939 18.8106C10.7724 18.6168 10.4581 18.5704 10.1901 18.692C9.9221 18.8136 9.75 19.0807 9.75 19.375H10.5ZM10.5 22H9.75C9.75 22.2943 9.9221 22.5614 10.1901 22.683C10.4581 22.8046 10.7724 22.7582 10.9939 22.5644L10.5 22ZM14.4244 19.8173C14.0123 19.859 13.7121 20.227 13.7538 20.6391C13.7956 21.0512 14.1635 21.3514 14.5756 21.3096L14.4244 19.8173ZM10.5443 19.8948C8.20148 19.756 6.17254 19.2897 4.75556 18.6471C4.04582 18.3252 3.52438 17.9747 3.19064 17.6296C2.86028 17.288 2.75 16.993 2.75 16.75H1.25C1.25 17.494 1.60081 18.1434 2.11244 18.6724C2.62069 19.1979 3.32214 19.644 4.13599 20.0131C5.76619 20.7525 7.98726 21.246 10.4557 21.3922L10.5443 19.8948ZM20.4948 15.5878C21.0684 16.0424 21.25 16.443 21.25 16.75H22.75C22.75 15.7998 22.1833 15.012 21.4263 14.4122L20.4948 15.5878ZM2.75 16.75C2.75 16.443 2.93157 16.0424 3.50523 15.5878L2.5737 14.4122C1.81667 15.012 1.25 15.7998 1.25 16.75H2.75ZM12.4939 20.1231L10.9939 18.8106L10.0061 19.9394L11.5061 21.2519L12.4939 20.1231ZM9.75 19.375V20.6435H11.25V19.375H9.75ZM9.75 20.6435V22H11.25V20.6435H9.75ZM10.9939 22.5644L12.4939 21.2519L11.5061 20.1231L10.0061 21.4356L10.9939 22.5644ZM21.25 16.75C21.25 17.2066 20.8246 17.8623 19.5314 18.5103C18.3014 19.1266 16.522 19.6047 14.4244 19.8173L14.5756 21.3096C16.791 21.0851 18.7617 20.5738 20.2034 19.8514C21.5819 19.1606 22.75 18.1281 22.75 16.75H21.25Z"
+              fill="#fff"
+            />
+            <path
+              d="M6.75 11.9121C6.2644 10.6717 6 9.351 6 8.10747C6 4.73441 8.68629 2 12 2C15.3137 2 18 4.73441 18 8.10747C18 11.4541 16.085 15.3593 13.0972 16.7558C12.4007 17.0814 11.5993 17.0814 10.9028 16.7558C9.94855 16.3098 9.10373 15.6079 8.39578 14.75"
+              stroke="#fff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          Map
+        </li>
+        <li class="navigation-option flex items-center gap-4 font-semibold">
+          <svg
+            class="size-10"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.32181 14.4933C7.3798 15.9862 6.90879 16.7327 7.22969 17.3433C7.55059 17.9538 8.45088 18.0241 10.2514 18.1647L10.7173 18.201C11.2289 18.241 11.4848 18.261 11.7084 18.3785C11.9321 18.4961 12.0983 18.6979 12.4306 19.1015L12.7331 19.469C13.9026 20.8895 14.4873 21.5997 15.1543 21.5084C15.8213 21.417 16.1289 20.5846 16.7439 18.9198L16.9031 18.4891C17.0778 18.0161 17.1652 17.7795 17.3369 17.6078C17.5086 17.4362 17.7451 17.3488 18.2182 17.174L18.6489 17.0149C20.3137 16.3998 21.1461 16.0923 21.2374 15.4253C21.3288 14.7583 20.6185 14.1735 19.1981 13.0041M17.8938 10.5224C17.7532 8.72179 17.6829 7.8215 17.0723 7.5006C16.4618 7.1797 15.7153 7.65071 14.2224 8.59272L13.8361 8.83643C13.4119 9.10412 13.1998 9.23797 12.9554 9.27143C12.7111 9.30488 12.4622 9.23416 11.9644 9.09271L11.5113 8.96394C9.75959 8.46619 8.88375 8.21732 8.41508 8.68599C7.94641 9.15467 8.19528 10.0305 8.69303 11.7822"
+              stroke="#fff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M13.5 6.5L13 6M9.5 2.5L11.5 4.5"
+              stroke="#fff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M6.5 6.5L4 4"
+              stroke="#fff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M6 12L4.5 10.5M2 8L2.5 8.5"
+              stroke="#fff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          Starred Places
+        </li>
+        <li class="navigation-option flex items-center gap-4 font-semibold">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-10"
+          >
+            <path
+              d="M18 18.86H17.24C16.44 18.86 15.68 19.17 15.12 19.73L13.41 21.42C12.63 22.19 11.36 22.19 10.58 21.42L8.87 19.73C8.31 19.17 7.54 18.86 6.75 18.86H6C4.34 18.86 3 17.53 3 15.89V4.97998C3 3.33998 4.34 2.01001 6 2.01001H18C19.66 2.01001 21 3.33998 21 4.97998V15.89C21 17.52 19.66 18.86 18 18.86Z"
+              stroke="#fff"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12.28 14.96C12.13 15.01 11.88 15.01 11.72 14.96C10.42 14.51 7.5 12.66 7.5 9.51001C7.5 8.12001 8.62 7 10 7C10.82 7 11.54 7.39 12 8C12.46 7.39 13.18 7 14 7C15.38 7 16.5 8.12001 16.5 9.51001C16.49 12.66 13.58 14.51 12.28 14.96Z"
+              stroke="#fff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          liked pharmacy
+        </li>
+        <li class="navigation-option">SVG lorem</li>
+        <li class="flex h-[50%] flex-col items-start gap-2">
+          <span class="mb-8 px-3 text-xl text-gray-100 underline opacity-70"
             >Account</span
           >
           <ul class="flex flex-col gap-4">
-            <li class="navigation-option flex gap-3 items-center">
+            <li class="navigation-option flex items-center gap-3">
               <svg
                 class="size-5"
                 viewBox="0 0 20 20"
@@ -80,7 +163,9 @@
               </svg>
               Profile
             </li>
-            <li class="navigation-option flex gap-3 decoration-black items-center">
+
+            <li class="navigation-option flex items-center gap-3">
+
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -110,7 +195,7 @@
               </svg>
               Search History
             </li>
-            <li class="navigation-option flex gap-3 items-center">
+            <li class="navigation-option flex items-center gap-3">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -133,7 +218,7 @@
               </svg>
               Settings
             </li>
-            <li class="navigation-option flex gap-3 items-center">
+            <li class="navigation-option flex items-center gap-3">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -150,7 +235,7 @@
               </svg>
               help
             </li>
-            <li class="navigation-option flex gap-3 items-center">
+            <li class="navigation-option flex items-center gap-3">
               <svg
                 class="size-6"
                 viewBox="0 0 512 512"
@@ -158,26 +243,101 @@
               >
                 <path
                   d="M304,336v40a40,40,0,0,1-40,40H104a40,40,0,0,1-40-40V136a40,40,0,0,1,40-40H256c22.09,0,48,17.91,48,40v40"
-                  class="fill-none [stroke-width:32px] [stroke-linecap:round] [stroke-linejoin:round] stroke-white strok-line"
+                  class="strok-line fill-none stroke-white [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:32px]"
                 />
                 <polyline
                   points="368 336 448 256 368 176"
-                  class="fill-none [stroke-width:32px] [stroke-linecap:round] [stroke-linejoin:round] stroke-white strok-line"
+                  class="strok-line fill-none stroke-white [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:32px]"
                 />
                 <line
                   x1="176"
                   y1="256"
                   x2="432"
                   y2="256"
-                  class="fill-none [stroke-width:32px] [stroke-linecap:round] [stroke-linejoin:round] stroke-white strok-line"
+                  class="strok-line fill-none stroke-white [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:32px]"
                 />
               </svg>
               Log out
             </li>
           </ul>
+          <div
+            class="ml mt-auto flex flex-row-reverse gap-3 items-center justify-end w-full"
+          >
+            <div class="mode-toggler toggler">
+              <div class="ball dark:bg-white"></div>
+            </div>
+            <div class="dark-light-mode font-bold dark:text-white capitalize">
+              light mode
+            </div>
+            <div class="svg">
+              <svg
+                class="size-10"
+                viewBox="0 0 24 24"
+                fill="#fff"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="5"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M12 2V4"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M12 20V22"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M4 12L2 12"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M22 12L20 12"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M19.7778 4.22266L17.5558 6.25424"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M4.22217 4.22266L6.44418 6.25424"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M6.44434 17.5557L4.22211 19.7779"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M19.7778 19.7773L17.5558 17.5551"
+                  stroke="#fff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
         </li>
       </ul>
     </aside>
-    <!-- <script type="module" src="/src/utils/merging-tw-classes.ts"></script> -->
+    <script type="module" src="/src/utils/dark-mode-handler.ts"></script>
+    <script src="/src/index.ts"></script>
   </body>
 </html>
