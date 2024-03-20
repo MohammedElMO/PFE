@@ -1,0 +1,18 @@
+.parent {
+  perspective: 50px;
+  transform-origin: center;
+  transform-box: view-box;
+}
+
+.hovered-card:hover {
+  animation: swigle 0.2s backwards;
+}
+
+@keyframes swigle {
+  90% {
+    translate: 30px;
+  }
+  100% {
+    translate: 0px;
+  }
+}
