@@ -6,7 +6,7 @@ import { reset } from "../../utils/form-controles/rest"
 import { loginToater } from "../../notifications/toaster-notifier"
 import { redirect } from "../../utils/Routing/redirect"
 import { Routes } from "../../constants/Redirects"
-import { saveToken } from "../../utils/local-storage/saveTocken"
+import { saveTokenCookie } from "../../utils/local-storage/saveTocken"
 
 // password9012
 // Olivia Wilson
@@ -26,8 +26,8 @@ export const loginHandler = async (loginvalid: LoginT) => {
         "You've Log in successfully!",
         "success",
       )
-      saveToken("accessToken", state.response.accessToken)
-      saveToken("userId", state.response.userId)
+      saveTokenCookie("accessToken", state.response.accessToken)
+      saveTokenCookie("userId", state.response.userId)
 
       if (conformation.isConfirmed) {
         redirect(Routes.MAIN_PAGE)

@@ -1,30 +1,21 @@
+import { SignUpType } from "schema/signup-schema.zod"
 import apiClient from "../../api-client"
 
-type SignUp = {
+type SignUpMessage = {
   accessToken: string
-  userId?: string
-  message: string
-  result?: any
-  success?: boolean
+  userId: string
+  message: "user successfully created!"
 }
 
-export const sendSignUp = async (userPayload: {
-  fullName: string
-  email: string
-  password: string
-}): Promise<{
-  state: "success" | "failed"
-  response: SignUp
-}> => {
+export const sendSignUp = async (
+  userPayload: SignUpType,
+): Promise<{ state: "success"; accessToken: string } | { state: "failed" }> => {
   try {
-    const response = await apiClient.post<SignUp>("/signup", userPayload)
-    return { state: "success", response: response.data }
+    const res = await apiClient.post<SignUpMessage>("/signup", userPayload)
+    return { state: "success", accessToken: res.data.accessToken }
   } catch (error) {
     return {
       state: "failed",
-      response: {
-        success: false,
-      } as SignUp,
     }
   }
 }

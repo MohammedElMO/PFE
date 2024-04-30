@@ -10,9 +10,9 @@ export const signupSchema = z.object({
     })
     .trim()
     .min(10, {
-      message: "password must be at least 10 combination",
+      message: "password must be at least 10 combinations",
     })
-    .max(20, { message: "password must be 20 combinations or less" }),
+    .max(30, { message: "password must be 20 combinations or less" }),
   firstName: z
     .string({
       required_error: "first name must be supplied",
@@ -21,20 +21,31 @@ export const signupSchema = z.object({
     .min(1, {
       message: "first name must be supplied",
     })
-    .max(20, {
+    .max(30, {
       message: "first name must 20 charcters  or less",
     }),
   lastName: z
     .string({
-      required_error: "last name must be supplied",
+      required_error: "lastname must be supplied",
     })
     .trim()
     .min(1, {
-      message: "last name must be supplied",
+      message: "lastname must be supplied",
     })
-    .max(20, {
-      message: "last name must 20 charcters long or less",
+    .max(30, {
+      message: "lastname must 20 charcters long or less",
+    }),
+    username: z
+    .string({
+      required_error: "username must be supplied",
+    })
+    .trim()
+    .min(1, {
+      message: "username must be supplied",
+    })
+    .max(30, {
+      message: "username must less than 30 characters",
     }),
 })
 
-export type SignUp = z.infer<typeof signupSchema> 
+export type SignUpType = z.infer<typeof signupSchema> 

@@ -21,7 +21,8 @@ let validCredentials: SafeParseReturnType<LoginT, LoginT>
 addEventListener("DOMContentLoaded", () => username.focus())
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault()
-  if (validCredentials.success) loginHandler(validCredentials.data)
+  if (validCredentials.success) 
+    loginHandler(validCredentials.data)
 })
 cancelBtn.addEventListener("click", resetForm)
 password.addEventListener("input", (e) =>
