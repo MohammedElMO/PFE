@@ -13,28 +13,30 @@ const remembreMeFlag = document.querySelector(
   "#remember-me",
 ) as HTMLInputElement
 
-const err = document.createElement("p")
+const errPass = document.createElement("p")
+const errUser = document.createElement("p")
 loginBtn.disabled = true
 let formData = null
 let validCredentials: SafeParseReturnType<LoginT, LoginT>
 
 addEventListener("DOMContentLoaded", () => username.focus())
+
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault()
-  if (validCredentials.success) 
-    loginHandler(validCredentials.data)
+  if (validCredentials.success) loginHandler(validCredentials.data)
 })
 cancelBtn.addEventListener("click", resetForm)
 password.addEventListener("input", (e) =>
-  ValidationHandler("password", e.target as HTMLInputElement),
+  ValidationHandler("password", e.target as HTMLInputElement, errPass),
 )
 username.addEventListener("input", (e) =>
-  ValidationHandler("username", e.target as HTMLInputElement),
+  ValidationHandler("username", e.target as HTMLInputElement, errUser),
 )
 
 function ValidationHandler(
   targetLabel: "username" | "password",
   target: HTMLInputElement,
+  err: HTMLParagraphElement,
 ) {
   formData = new FormData(loginForm)
   const credentials = Object.fromEntries(formData)

@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const signupSchema = z.object({
+export const SettingsInfo = z.object({
   email: z
     .string()
     .email({
@@ -9,17 +9,7 @@ export const signupSchema = z.object({
     .max(50, {
       message: "L'adresse e-mail doit comporter moins de 50 caractères",
     }),
-  password: z
-    .string({
-      required_error: "Le mot de passe ne doit pas être vide",
-    })
-    .trim()
-    .min(10, {
-      message: "Le mot de passe doit comporter au moins 10 caractères",
-    })
-    .max(50, {
-      message: "Le mot de passe doit comporter moins de 50 caractères",
-    }),
+
   firstName: z
     .string({
       required_error: "Le prénom doit être fourni",
@@ -55,4 +45,4 @@ export const signupSchema = z.object({
     }),
 })
 
-export type SignUpType = z.infer<typeof signupSchema>
+export type SittingsInfoType = z.infer<typeof SettingsInfo>

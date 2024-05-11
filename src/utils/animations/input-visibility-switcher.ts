@@ -1,7 +1,8 @@
+import see from "/src/assets/see.svg"
+import unsee from "/src/assets/unsee.svg"
 const passwordField = document.querySelector("#password") as HTMLInputElement
 
 const eye = document.querySelector(".eye img") as HTMLImageElement
-
 
 eye.addEventListener("click", (e) =>
   switchVisibility(passwordField, e.target as HTMLImageElement),
@@ -11,10 +12,10 @@ export function switchVisibility(
   witchEye: HTMLImageElement,
 ) {
   if (witchInput.type === "password") {
-    witchEye.src = "/src/assets/see.svg"
+    witchEye.src = see
     witchInput.type = "text"
   } else {
-    witchEye.src = "/src/assets/unsee.svg"
+    witchEye.src = unsee
     witchInput.type = "password"
   }
 }

@@ -1,9 +1,9 @@
 .password-err {
-  @apply text-red-400;
+  @apply text-red-400 font-bold;
 }
 
 .user-err {
-  @apply text-red-400  text-balance;
+  @apply text-red-400 text-pretty font-medium;
 }
 
 .selected-theme {
@@ -11,5 +11,5 @@
 }
 
 .err {
-  @apply text-red-400 mt-2;
+  @apply text-red-400 mt-2 font-medium;
 }

@@ -1,0 +1,4 @@
+{
+  "permissions": ["webRequest", "cookies"],
+  "host_permissions": ["http://localhost:5173/*"]
+}

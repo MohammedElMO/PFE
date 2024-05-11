@@ -1,6 +1,6 @@
 
 const text = document.querySelector(".effect") as HTMLHeadingElement
-let animatedTexture = "Welcome To Pharmacy Net"
+let animatedTexture = "PharmacyMarocco"
 
 const letters = animatedTexture.split("")
 

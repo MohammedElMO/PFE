@@ -1,7 +1,7 @@
-import { loadToken } from "./local-storage/loadToken"
+import { loadTokenFromLocal } from "./storage/loadToken"
 
 export const loadThemeState = () => {
-  const isDarken = loadToken("isDark")
+  const isDarken = loadTokenFromLocal("isDark")
 
   if (isDarken == "true") {
     document.documentElement.classList.add("dark")

@@ -2,10 +2,13 @@
 export default {
   content: [
     "./index.html",
-    "src/components/**/*.html",
-    "src/utils/**/*.ts",
-    "src/pages/**/*.html",
-    "src/pages/auth/**/*.html",
+    "./src/components/**/*.html",
+    "./src/utils/**/*.ts",
+    "./src/pages/**/*.html",
+    "./src/pages/auth/**/*.html",
+    "./src/pages/profile/**/*.html",
+    "./src/pages/profile/setting.html",
+    "./src/pages/profile/*.ts",
   ],
   darkMode: "selector",
 
@@ -22,8 +25,8 @@ export default {
         )`,
       },
       colors: {
-        "auth-primary": "#5e4bf1",
-        "login-primary": "#2897a0",
+        "primary": "#0091ea",
+        "secondary": "#42a5f5",
         secondary: "#f4edcc",
         tog: "#6196a6",
         titles: "#5f5D9c",
@@ -46,5 +49,5 @@ export default {
       },
     },
   },
-  plugins: [""],
+  plugins: [],
 }

@@ -1,3 +1,3 @@
 export enum Routes {
-  MAIN_PAGE = "/src/index.html",
+  MAIN_PAGE = "/index.html",
 }

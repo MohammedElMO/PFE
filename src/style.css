@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @tailwind base;
@@ -6,18 +5,8 @@
 @tailwind utilities;
 
 @layer base {
-  span {
-    @apply p-0;
-  }
-}
-@layer utilities {
-  ::selection {
-    color: white;
-    @apply bg-login-primary;
-  }
-
-  .cursor {
-    @apply bg-white h-7 w-1 rounded-lg;
+  body {
+    /* overflow-x: hidden; */
   }
 }
 @layer components {
@@ -55,53 +44,23 @@
     translate: -24px;
   }
   .input {
-    @apply border border-login-primary/20 rounded-md px-3 py-2 outline-none  transition-all focus:border-login-primary/90;
+    @apply border border-primary/20 rounded-md px-3 py-2 outline-none  transition-all focus:border-primary/90 font-medium;
   }
   .btn {
-    /* accent-color: red; */
     @apply outline-none border px-3.5 py-2 rounded-md capitalize
       font-pop;
   }
 }
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: white;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--second-color);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--main-color); /* Color of the handle on hover */
-}
-body {
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
 
 :root {
   /* background-color: whitesmoke; */
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* font-synthesis: none; */
+  /* text-rendering: optimizeLegibility; */
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
   --main-color: #0091ea;
   --second-color: #42a5f5;
 }
-.flex {
-  transition: flex-direction 3s ease-in-out;
-}
-/* start backgroun  */
-body {
-  min-width: 200px;
-  min-height: 100vh;
-  place-items: center;
-}
-/* start side bare  */
 
 /* .tooltip {
   position: absolute;
@@ -238,4 +197,3 @@ body {
     transform: translateY(0px);
   }
 }
-/* end body in  */

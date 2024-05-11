@@ -1,10 +1,12 @@
-import { checkFalse, checkTrue } from "../utils/icons/icons"
+import { validIcon, nonValidIcon } from "../utils/icons/icons"
 import { SafeParseReturnType } from "zod"
 import apiClient from "../api/api-client"
 import { registerUser } from "../api/authentication-api/sign-up.user"
 import { signupSchema, SignUpType } from "../schema/signup-schema.zod"
 import "../styles/utils.css"
-const userNameContainer = document.querySelector(".username-container")
+const userNameContainer = document.querySelector(
+  ".username-container",
+) as HTMLDivElement
 const signUp = document.querySelector(".sign-up") as HTMLFormElement
 const firstName = document.querySelector("#firstName") as HTMLInputElement
 const lastName = document.querySelector("#lastName") as HTMLInputElement
@@ -17,11 +19,17 @@ const createAccount = document.querySelector(
 ) as HTMLButtonElement
 
 let signUpFormData = null
-let validUser = true
 let validCredentials: SafeParseReturnType<SignUpType, SignUpType>
 addEventListener("DOMContentLoaded", () => firstName.focus())
-diableBtn("infomation must be valid", true)
+diableBtn("les informations doivent être valides", true)
 
+function debounce(func: (e: Event) => void, timeout = 300) {
+  let timer: NodeJS.Timeout
+  return (...args: any[]) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => func.apply(null, args as any), timeout)
+  }
+}
 let passwordErr = document.createElement("p")
 let firstNameErr = document.createElement("p")
 let lastNameErr = document.createElement("p")
@@ -40,39 +48,38 @@ firstName.addEventListener("input", (e) => {
 lastName.addEventListener("input", (e) => {
   ValidationHandler("lastName", e.target as HTMLInputElement, lastNameErr)
 })
-username.addEventListener("input", (e) => {
+
+const userNameHandler = debounce((e) => {
   ValidationHandler("username", e.target as HTMLInputElement, usernameErr)
   checkUserExistence((e.target as HTMLInputElement).value)
-})
+}, 800)
 
-password.addEventListener("input", (e) => {
-  ValidationHandler("password", e.target as HTMLInputElement, passwordErr)
-})
+username.addEventListener("input", userNameHandler),
+  password.addEventListener("input", (e) => {
+    ValidationHandler("password", e.target as HTMLInputElement, passwordErr)
+  })
 email.addEventListener("input", (e) => {
   ValidationHandler("email", e.target as HTMLInputElement, emailErr)
 })
 
 async function checkUserExistence(value: string) {
-  const req = await apiClient.post<{ userFound: boolean }>("/user/username", {
-    user: value,
+  const req = await apiClient.put<{ userFound: boolean }>("/user/username", {
+    username: value,
   })
-  if (validUser) diableBtn("infomation must be valid", true)
+  const { userFound } = req.data
 
-  const userFound = req.data.userFound
   if (userFound) {
-    if (userNameContainer?.contains(checkTrue))
-      userNameContainer?.removeChild(checkTrue)
-
-    userNameContainer?.append(checkFalse)
-    displayError(["username already taken"], "err", usernameErr, username)
-    validUser = false
+    userNameContainer.innerHTML = nonValidIcon
+    displayError(
+      ["le nom d'utilisateur est déjà pris"],
+      "err",
+      usernameErr,
+      username,
+    )
   } else {
-    if (userNameContainer?.contains(checkFalse))
-      userNameContainer?.removeChild(checkFalse)
-
-    userNameContainer?.append(checkTrue)
-    validUser = true
+    userNameContainer.innerHTML = validIcon
   }
+  if (userFound) diableBtn("les informations doivent être valides", true)
 }
 
 function ValidationHandler(
@@ -87,13 +94,15 @@ function ValidationHandler(
   validCredentials = signupSchema.safeParse(credentials)
 
   if (!validCredentials.success) {
+    diableBtn("les informations doivent être valides", true)
+
     let rules = validCredentials.error.format()
     if (rules[targetLabel]?._errors) {
       displayError(rules[targetLabel]!._errors, "err", err, target)
     } else err.remove()
   } else {
     err.remove()
-    diableBtn("create an account", false)
+    diableBtn("Créer un compte", false)
   }
 }
 
