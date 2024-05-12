@@ -6,6 +6,200 @@
     <title>Settings</title>
   </head>
   <body>
+    <header class="sticky top-0 z-50 mb-10 shadow-lg ">
+      <nav
+        class="flex flex-row items-center justify-between p-6 md:px-8 w-full backdrop-blur-md"
+        aria-label="Global"
+      >
+        <div class="flex md:flex-1">
+          <a href="../../../index.html" class="-m-1.5 p-1.5 flex items-center">
+            <img class="h-8 w-auto" src="/src/assets/image/logo2.png" alt="" />
+            <h1 class="text-md pacifico-regular">PharMaroc</h1>
+          </a>
+        </div>
+        <div class="flex md:hidden">
+          <button
+            id="open_menu"
+            type="button"
+            class="-m-2.5 mr-4 inline-flex items-center justify-center rounded-md text-gray-700"
+          >
+            <span class="sr-only">Open main menu</span>
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+        <div class="hidden md:flex md:gap-x-12">
+          <a
+            href="/index.html"
+            class="text-sm font-semibold leading-6 text-gray-900"
+            >Home</a
+          >
+          <a
+            href="src/pages/map/map.html"
+            class="text-sm font-semibold leading-6 text-gray-900"
+            >Maps</a
+          >
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+            >Medicament</a
+          >
+          <a
+            href="#"
+            class="text-sm font-semibold leading-6 text-gray-900 relative"
+            id="favorite"
+            ><span>Favorits</span>
+            <i class="fa-solid fa-chevron-down ml-2"></i>
+            <div
+              class="absolute hidden flex-col top-14 right-1/4"
+              id="fav_element"
+            >
+              <ul>
+                <li
+                  class="py-2 px-3 rounded-r duration-200 delay-75 ease-in hover:bg-gray-100"
+                >
+                  <a
+                    href="#"
+                    class="text-sm font-semibold leading-6 text-gray-900"
+                    >Favorite Pharmacies</a
+                  >
+                </li>
+                <li
+                  class="py-2 px-3 rounded-r duration-200 delay-75 ease-in hover:bg-gray-100"
+                >
+                  <a
+                    href="#"
+                    class="text-sm font-semibold leading-6 text-gray-900"
+                    >Favorite Medicament</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </a>
+        </div>
+        <div
+          class="hidden md:items-center md:flex md:gap-1 md:flex-1 md:justify-end"
+        >
+          <i class="fa-regular fa-user cursor-pointer relative" id="user_icon">
+            <div
+              id="user_elem"
+              class="hidden bg-white absolute w-auto -right-1 top-7 rounded-xl border py-2 px-2 text-sm font-semibold leading-6"
+            >
+              <ul class="flex flex-col w-auto text-nowrap">
+                <li
+                  class="py-2 px-3 rounded-r text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-100"
+                  id="log-in"
+                >
+                  <a
+                    href="/src/pages/auth/login/login.html"
+                    data-modal-target="authentication-modal"
+                    data-modal-toggle="authentication-modal"
+                    >Log In</a
+                  >
+                </li>
+                <li
+                  class="py-2 px-3 rounded-l text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-100"
+                  id="sign-up"
+                >
+                  <a href="/src/pages/auth/signup/signup.html">Sing Up</a>
+                </li>
+                <li
+                  class="py-2 px-3 rounded-l text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-300"
+                  id="settings"
+                >
+                  <a href="/src/pages/profile/setting.html">settings</a>
+                </li>
+                <li
+                  class="hidden py-2 px-3 rounded text-sm hover:bg-red-500 hover:text-white"
+                  id="log-out"
+                >
+                  <button class="w-full">log Out</button>
+                </li>
+              </ul>
+            </div>
+          </i>
+        </div>
+      </nav>
+      <!-- Mobile menu, show/hide based on menu open state. -->
+      <div class="hidden" id="mobile_mode">
+        <!-- Background backdrop, show/hide based on slide-over state. -->
+        <div class="fixed inset-0 z-50 bg-[#11111152]"></div>
+        <div
+          class="fixed overflow-hidden inset-y-0 right-0 z-50 bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+        >
+          <div class="flex items-end justify-end">
+            <button
+              type="button"
+              id="close_menu"
+              class="-m-2.5 rounded-md p-3.5"
+            >
+              <span class="sr-only">Close menu</span>
+              <i class="fa-solid fa-x"></i>
+            </button>
+          </div>
+          <div class="mt-6 flow-root h-[95%]">
+            <div
+              class="-my-6 divide-y h-full flex flex-col justify-between divide-gray-500/10"
+            >
+              <div class="space-y-2 py-6">
+                <a
+                  href="/"
+                  class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >Home</a
+                >
+                <a
+                  href="/src/pages/map/map.html"
+                  class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >Maps</a
+                >
+                <a
+                  href="#"
+                  class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >Medicament</a
+                >
+                <a
+                  href="/src/pages/favourites/medicines.html"
+                  class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >Favorite Pharmacies</a
+                >
+                <a
+                  href="/src/pages/favourites/pharmacies.html"
+                  class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >Favorite Medicament</a
+                >
+              </div>
+              <ul class="pt-4 flex flex-col gap-3 left-side">
+                <li id="log-in">
+                  <a
+                    href="./src/pages/auth/login/login.html"
+                    class="-mx-3 block border text-center hover:bg-slate-300 rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
+                    >Log In</a
+                  >
+                </li>
+                <li
+                  class="py-2 px-3 rounded-l text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-100"
+                  id="sign-up"
+                >
+                  <a href="./src/pages/auth/signup/signup.html">Sing Up</a>
+                </li>
+                <li id="settings" class="hidden">
+                  <a
+                    href="./src/pages/profile/setting.html"
+                    class="-mx-3 block border text-center hover:bg-slate-300 rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
+                    >Settings</a
+                  >
+                </li>
+
+                <li id="log-out" class="hidden">
+                  <button
+                    class="hover:bg-red-500 w-full border hover:text-white text-center rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <main class="min-h-screen overflow-hidden">
       <section class="grid grid-rows-1 gap-10 lg:p-5">
         <div
@@ -20,7 +214,7 @@
               courrier.</span
             >
           </div>
-          <form class="" id="settings-info">
+          <form id="settings-info">
             <div class="mb-5 flex gap-3 items-center">
               <img src="/src/assets/profile.png" class="size-14" alt="avatar" />
               <div class="flex flex-col">
@@ -68,7 +262,7 @@
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
               />
             </div>
-            <div class="mb-5 relative ">
+            <div class="mb-5 relative">
               <label
                 for="username"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"

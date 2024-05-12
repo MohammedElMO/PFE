@@ -1,48 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Anta&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ubuntu:wght@300&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    /* overflow-x: hidden; */
-  }
-}
 @layer components {
-  .navigation-option::before {
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.11);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    z-index: -1;
-    @apply rounded-lg;
-  }
-  .navigation-option {
-    @apply relative cursor-pointer  px-3 py-2 
-          font-pop  
-         text-xl text-white hover:before:block;
-  }
-  .navigation-title {
-    @apply flex items-center gap-4  font-pop 
-    text-4xl  font-bold text-white;
-  }
-
-  .mode-toggler {
-    @apply relative cursor-pointer rounded-full
-        border-2 border-gray-500 px-5 py-2;
-  }
-  .ball {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transition: all 0.4s ease;
-    @apply w-4 h-full  rounded-full bg-black;
-  }
-
-  .ball.dark {
-    translate: -24px;
-  }
   .input {
     @apply border border-primary/20 rounded-md px-3 py-2 outline-none  transition-all focus:border-primary/90 font-medium;
   }
@@ -53,147 +16,110 @@
 }
 
 :root {
-  /* background-color: whitesmoke; */
-  /* font-synthesis: none; */
-  /* text-rendering: optimizeLegibility; */
-  /* -webkit-font-smoothing: antialiased; */
-  /* -moz-osx-font-smoothing: grayscale; */
   --main-color: #0091ea;
   --second-color: #42a5f5;
 }
 
-/* .tooltip {
-  position: absolute;
-  top: 0;
-  font-size: 14px;
-  background: #ffffff;
-  color: #777;
-  padding: 5px 8px;
-  border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
-
-.tooltip::before {
-  position: absolute;
-  content: "";
-  height: 8px;
-  width: 8px;
-  background: #ffffff;
-  bottom: -3px;
-  left: 50%;
-  transform: translate(-50%) rotate(45deg);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.blue_main {
+  color: var(--main-color);
 }
-.uiverse:hover .tooltip {
-  top: -45px;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-} */
-
-/* end side bare  */
-/* start navbar  */
-#langauge_btn {
-  width: 24px;
-  height: 24px;
-  padding: 2px;
-  font-size: 13px;
+.bg_blue_main {
   background: var(--main-color);
-  border-radius: 50%;
-  margin: 0px 10px;
 }
-#langauge_btn:hover {
-  background: var(--second-color);
-}
-/* end navbar  */
-/* start body info  */
-.info_btn {
-  padding: 8px 15px;
-  border: 2px solid var(--second-color);
-  position: relative;
-  overflow: hidden;
-  background-color: transparent;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 500;
-  transition: 0.3s;
-  z-index: 1;
-  font-family: inherit;
-  border-radius: 9px;
+.blue_second {
   color: var(--second-color);
 }
-
-.info_btn::before {
-  content: "";
-  width: 0;
-  height: 320%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  background: var(--main-color);
-  transition: 0.5s ease;
-  display: block;
-  z-index: -1;
+.bg_blue_second {
+  background: var(--second-color);
 }
 
-.info_btn:hover::before {
-  width: 105%;
-}
-
-.info_btn:hover {
-  color: #fff;
-}
-
-.info {
-  width: 50%;
-  margin-bottom: 80px;
-}
-.title_info {
-  color: var(--main-color);
-  text-shadow: 6px 4px 20px white;
-  font-size: 30px;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-.info p {
-  font-size: 20px;
-}
-.image-main {
+.header_text,
+.phar_text {
   position: relative;
-  transition: 0.4s;
-  animation: up-down-image 2s infinite ease-in-out;
 }
-
-@media (max-width: 1090px) {
-  .info p {
-    font-size: 17px;
-  }
-  .title_info {
-    font-size: 26px;
-  }
-  .logo h3 {
-    font-size: 22px;
-  }
-  .nav_bar ul li a {
-    font-size: 14px !important;
-    padding-left: 10px;
-    padding-right: 10px;
+.header_text::before {
+  content: "Solution Pharmaceutique";
+}
+.phar_text::before {
+  content: "PharMaroc";
+}
+@media (min-width: 405px) {
+  .header_text::after,
+  .phar_text::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 82%;
+    background-color: white;
+    right: -10px;
   }
 }
+.phar_text::after {
+  animation: display1 30s infinite;
+}
+.header_text::after {
+  animation: display2 30s infinite;
+  animation-delay: 1.5s;
+}
 
-@keyframes up-down-image {
-  0% {
-    transform: translateY(0px);
+@keyframes display1 {
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: calc(110%);
   }
-  50% {
-    transform: translateY(10px);
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: 0;
   }
-  100% {
-    transform: translateY(0px);
+}
+@keyframes display2 {
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: calc(110%);
   }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: 0;
+  }
+}
+
+/* end body in  */
+/* start map  */
+#MicrosoftNav.NavBar_Container.Light.horizontal.compact {
+  display: none;
 }

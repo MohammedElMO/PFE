@@ -1,3 +1,4 @@
+import { InfoToast } from "../../../notifications/toaster-notifier"
 import apiClient from "../../api-client"
 import Cookies from "js-cookie"
 export type Settings = {
@@ -15,5 +16,8 @@ export const getProfile = async () => {
       },
     })
     return res.data
-  } catch (error) {}
+  } catch (error) {
+    InfoToast("quelque chose s'est mal passé", "info", "top-right", "", true)
+    return 
+  }
 }

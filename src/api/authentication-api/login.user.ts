@@ -14,11 +14,12 @@ export const loginHandler = async ({ password, username }: LoginT) => {
   switch (state?.state) {
     case "success":
       let conformation = await loginToater(
-        "You've Log in successfully!",
+        "Vous vous êtes connecté avec succès!",
         "success",
       )
       Cookies.set("jwtToken", state.response!.jwtToken, {
         secure: true,
+        expires:1
       })
 
       if (conformation.isConfirmed) {
@@ -26,7 +27,7 @@ export const loginHandler = async ({ password, username }: LoginT) => {
       }
       return
     case "failed":
-      loginToater("Credential are incorrect \n Try again!", "error")
+      loginToater("Les identifiants sont incorrects. Veuillez réessayer!", "error")
       reset([passwordIn, usernameIn])
       return
 

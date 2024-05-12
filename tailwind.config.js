@@ -25,9 +25,8 @@ export default {
         )`,
       },
       colors: {
-        "primary": "#0091ea",
-        "secondary": "#42a5f5",
-        secondary: "#f4edcc",
+        primary: "#0091ea",
+        secondary: "#42a5f5",
         tog: "#6196a6",
         titles: "#5f5D9c",
         switchers: "#a4ce9e",

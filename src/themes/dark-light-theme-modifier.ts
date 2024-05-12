@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "selected-theme",
     )
   } else {
-    console.log(document.documentElement.classList.remove("dark"))
 
     lightMode.parentElement!.parentElement!.parentElement!.classList.add(
       "selected-theme",

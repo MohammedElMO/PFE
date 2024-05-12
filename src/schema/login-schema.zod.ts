@@ -9,6 +9,7 @@ export const loginSchema = z.object({
     .min(1, {
       message: "le mot de passe doit être fourni",
     }),
+
   username: z
     .string({
       required_error: "le nom d'utilisateur doit être fourni",

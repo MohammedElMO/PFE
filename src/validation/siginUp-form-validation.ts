@@ -72,7 +72,7 @@ async function checkUserExistence(value: string) {
     userNameContainer.innerHTML = nonValidIcon
     displayError(
       ["le nom d'utilisateur est déjà pris"],
-      "err",
+      "err", 
       usernameErr,
       username,
     )
@@ -89,7 +89,6 @@ function ValidationHandler(
 ) {
   signUpFormData = new FormData(signUp)
   const credentials = Object.fromEntries(signUpFormData)
-  console.log(credentials)
 
   validCredentials = signupSchema.safeParse(credentials)
 

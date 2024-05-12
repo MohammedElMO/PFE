@@ -82,7 +82,6 @@ form.addEventListener("submit", async (e) => {
 })
 
 const samePassChack = (currentPass: string, confirmPass: string) => {
-  console.log(currentPass, confirmPass)
   if (currentPass !== confirmPass) {
     InjectError(
       [

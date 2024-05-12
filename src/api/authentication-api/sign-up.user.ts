@@ -2,8 +2,8 @@ import { sendSignUp } from "../fetchers/post/SignUpUser"
 import { loginToater } from "../../notifications/toaster-notifier"
 import { redirect } from "../../utils/Routing/redirect"
 import { Routes } from "../../constants/Redirects"
-import { saveTokenCookie } from "../../utils/storage/saveToken"
 import { SignUpType } from "../../schema/signup-schema.zod"
+import Cookies from "js-cookie"
 
 export async function registerUser(validSignUp: SignUpType) {
   const signUpState = await sendSignUp(validSignUp)
@@ -11,10 +11,13 @@ export async function registerUser(validSignUp: SignUpType) {
   switch (signUpState.state) {
     case "success":
       let conformation = await loginToater(
-        "you created Your account!",
+        "Votre compte a été créé!",
         "success",
       )
-      saveTokenCookie("accessToken", signUpState.accessToken)
+      Cookies.set("jwtToken", signUpState.jwtToken, {
+        expires: 1,
+        secure: true,
+      })
 
       if (conformation.isConfirmed) {
         redirect(Routes.MAIN_PAGE)
@@ -22,7 +25,7 @@ export async function registerUser(validSignUp: SignUpType) {
       return
     case "failed":
       await loginToater(
-        "Error Has Occured Change the username or try again",
+        "Une erreur s'est produite. Veuillez réessayer",
         "error",
       )
   }

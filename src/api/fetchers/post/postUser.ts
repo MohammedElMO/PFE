@@ -6,10 +6,15 @@ type AuthResponse = {
   refreshToken: string
 }
 
-export const postUser = async (userPayload: LoginT) => {
+export const postUser = async (userCredentials: LoginT) => {
   try {
-    const response = await apiClient.post<AuthResponse>("/login", userPayload)
-    return { state: "success", response: response.data }
+    const response = await apiClient.post<AuthResponse>(
+      "/login",
+      userCredentials,
+    )
+    if (response.status === 200)
+      return { state: "success", response: response.data }
+    return { state: "failed" }
   } catch (error) {
     return { state: "failed" }
   }

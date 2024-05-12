@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
-console.log(toggler)
 toggler.addEventListener("change", () => {
   const isDarken = loadTokenFromLocal("isDark")
   if (isDarken == "true") {

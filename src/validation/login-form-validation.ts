@@ -9,9 +9,6 @@ export const username = document.querySelector("#username") as HTMLInputElement
 const cancelBtn = document.querySelector(".cancel") as HTMLButtonElement
 const loginBtn = document.querySelector(".log-in") as HTMLButtonElement
 
-const remembreMeFlag = document.querySelector(
-  "#remember-me",
-) as HTMLInputElement
 
 const errPass = document.createElement("p")
 const errUser = document.createElement("p")
@@ -26,6 +23,7 @@ loginForm.addEventListener("submit", (e) => {
   if (validCredentials.success) loginHandler(validCredentials.data)
 })
 cancelBtn.addEventListener("click", resetForm)
+
 password.addEventListener("input", (e) =>
   ValidationHandler("password", e.target as HTMLInputElement, errPass),
 )
@@ -40,8 +38,8 @@ function ValidationHandler(
 ) {
   formData = new FormData(loginForm)
   const credentials = Object.fromEntries(formData)
-
   validCredentials = loginSchema.safeParse(credentials)
+
 
   if (!validCredentials.success) {
     let rules = validCredentials.error.format()
@@ -71,5 +69,4 @@ function resetForm() {
   formData = null
   username.value = ""
   password.value = ""
-  remembreMeFlag.checked = false
 }
