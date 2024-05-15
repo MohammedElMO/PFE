@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings</title>
   </head>
-  <body>
-    <header class="sticky top-0 z-50 mb-10 shadow-lg ">
+  <body class="overflow-x-hidden">
+    <header class="sticky top-0 z-50 mb-10 shadow-lg w-screen">
       <nav
         class="flex flex-row items-center justify-between p-6 md:px-8 w-full backdrop-blur-md"
         aria-label="Global"
@@ -17,7 +17,7 @@
             <h1 class="text-md pacifico-regular">PharMaroc</h1>
           </a>
         </div>
-        <div class="flex md:hidden">
+        <div class="flex md:hidden ">
           <button
             id="open_menu"
             type="button"
@@ -27,28 +27,30 @@
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
-        <div class="hidden md:flex md:gap-x-12">
+        <div class="hidden md:flex md:gap-x-12 items-center">
           <a
             href="/index.html"
-            class="text-sm font-semibold leading-6 text-gray-900"
+            class="text-sm font-semibold leading-6 p-2 hover:bg-gray-200 rounded text-gray-900"
             >Home</a
           >
           <a
             href="src/pages/map/map.html"
-            class="text-sm font-semibold leading-6 text-gray-900"
+            class="text-sm font-semibold leading-6 p-2 hover:bg-gray-200 rounded text-gray-900"
             >Maps</a
-          >
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-            >Medicament</a
           >
           <a
             href="#"
-            class="text-sm font-semibold leading-6 text-gray-900 relative"
+            class="text-sm font-semibold p-2 hover:bg-gray-200 rounded leading-6 text-gray-900"
+            >Medicament</a
+          >
+          <div
+            class="relative text-sm font-semibold leading-6 p-2 hover:bg-gray-200 rounded text-gray-900"
             id="favorite"
-            ><span>Favorits</span>
+          >
+            <span>Favorits</span>
             <i class="fa-solid fa-chevron-down ml-2"></i>
             <div
-              class="absolute hidden flex-col top-14 right-1/4"
+              class="absolute flex-col top-14 cursor-pointer -right-[100px] bg-white shadow-md text-nowrap"
               id="fav_element"
             >
               <ul>
@@ -56,8 +58,8 @@
                   class="py-2 px-3 rounded-r duration-200 delay-75 ease-in hover:bg-gray-100"
                 >
                   <a
-                    href="#"
-                    class="text-sm font-semibold leading-6 text-gray-900"
+                    href="/src/pages/favourites/pharmacies.html"
+                    class="text-sm font-semibold text-gray-900"
                     >Favorite Pharmacies</a
                   >
                 </li>
@@ -65,17 +67,17 @@
                   class="py-2 px-3 rounded-r duration-200 delay-75 ease-in hover:bg-gray-100"
                 >
                   <a
-                    href="#"
-                    class="text-sm font-semibold leading-6 text-gray-900"
+                    href="/src/pages/favourites/medicines.html"
+                    class="text-sm font-semibold text-gray-900"
                     >Favorite Medicament</a
                   >
                 </li>
               </ul>
             </div>
-          </a>
+          </div>
         </div>
         <div
-          class="hidden md:items-center md:flex md:gap-1 md:flex-1 md:justify-end"
+          class="hidden md:items-center md:flex md:gap-1 md:flex-1 md:justify-end mr-5"
         >
           <i class="fa-regular fa-user cursor-pointer relative" id="user_icon">
             <div
@@ -173,11 +175,12 @@
                     >Log In</a
                   >
                 </li>
-                <li
-                  class="py-2 px-3 rounded-l text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-100"
-                  id="sign-up"
-                >
-                  <a href="./src/pages/auth/signup/signup.html">Sing Up</a>
+                <li id="sign-up">
+                  <a
+                    class="-mx-3 block border text-center hover:bg-slate-300 rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
+                    href="./src/pages/auth/signup/signup.html"
+                    >Sing Up</a
+                  >
                 </li>
                 <li id="settings" class="hidden">
                   <a
@@ -283,7 +286,7 @@
               id="saver"
               class="text-white disabled:bg-primary/30 bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-primabg-primary/30 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary/60 dark:hover:bg-primary/70 dark:focus:ring-primabg-primary/80"
             >
-              Save
+              Enregistrer
             </button>
           </form>
         </div>
@@ -351,14 +354,14 @@
                 type="submit"
                 class="text-white disabled:bg-primary/30 bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:bg-primary/80 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
               >
-                save new Password
+                Enregistrer nouveau mot de passe
               </button>
               <button
                 type="reset"
                 id="revert"
                 class="text-white bg-blue-700 hover:bg-primary/80 focus:ring-4 focus:outline-none focus:bg-primary/80 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary dark:focus:ring-primary"
               >
-                revert
+                revenir
               </button>
             </div>
           </form>
@@ -372,7 +375,7 @@
           <div
             class="flex flex-col gap-2 text-center lg:text-left lg:w-[50%] mb-6 lg:mb-0"
           >
-            <h1 class="font-medium text-lg">Delete account</h1>
+            <h1 class="font-medium text-lg">Supprimer mon compte</h1>
             <span>
               Vous ne souhaitez plus utiliser notre service ? Vous pouvez
               supprimer votre compte ici. Cette action est irréversible. Toutes

@@ -7,9 +7,11 @@ import { Settings, getProfile } from "../api/fetchers/get/getProfile"
 import { SafeParseReturnType } from "zod"
 import { InfoToast } from "../notifications/toaster-notifier"
 import { updateUserProfileInfo } from "../api/authentication-api/info.user"
-// import { debounce } from "./siginUp-form-validation"
 import apiClient from "../api/api-client"
 import { nonValidIcon, validIcon } from "../utils/icons/icons"
+
+
+
 
 let settings = (await getProfile()) as Settings
 
@@ -24,10 +26,13 @@ const eErr = document.createElement("p")
 const uErr = document.createElement("p")
 
 saverBtn.disabled = true
-firstName.value = settings.prenom_utilisateur
-lastName.value = settings.nom_utilisateur
-email.value = settings.email_utilisateur
-username.value = settings.uesrname
+if (settings) {
+  firstName.value = settings.prenom_utilisateur
+  lastName.value = settings.nom_utilisateur
+  email.value = settings.email_utilisateur
+  username.value = settings.uesrname
+}
+
 let validCredentials: SafeParseReturnType<SittingsInfoType, SittingsInfoType>
 const form = document.querySelector("#settings-info") as HTMLFormElement
 
@@ -49,7 +54,6 @@ async function checkUserExistence(value: string) {
   } else {
     usernameContainer.innerHTML = validIcon
     saverBtn.disabled = false
-
   }
 }
 
@@ -99,7 +103,7 @@ form.addEventListener("submit", async (e) => {
   Promise.all([
     await updateUserProfileInfo(credentials),
     (await getProfile()) as Settings,
-  ]).then(([f, s]) => {
+  ]).then(([, s]) => {
     settings = s
     isChanging()
   })

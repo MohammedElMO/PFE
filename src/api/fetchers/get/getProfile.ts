@@ -1,3 +1,4 @@
+import { AxiosError } from "axios"
 import { InfoToast } from "../../../notifications/toaster-notifier"
 import apiClient from "../../api-client"
 import Cookies from "js-cookie"
@@ -15,9 +16,21 @@ export const getProfile = async () => {
         Authorization: Cookies.get("jwtToken"),
       },
     })
+
     return res.data
   } catch (error) {
-    InfoToast("quelque chose s'est mal passé", "info", "top-right", "", true)
-    return 
+    redirectIfNoAuthicated(error)
+
+    InfoToast("quelque chose s'est mal passé", "info", "top-right")
+    return
+  }
+}
+
+export const redirectIfNoAuthicated = (error: any) => {
+  if (error instanceof AxiosError) {
+    if (error.response?.status === 401) {
+      location.href = "/"
+      return
+    }
   }
 }

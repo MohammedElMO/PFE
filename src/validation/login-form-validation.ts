@@ -9,7 +9,6 @@ export const username = document.querySelector("#username") as HTMLInputElement
 const cancelBtn = document.querySelector(".cancel") as HTMLButtonElement
 const loginBtn = document.querySelector(".log-in") as HTMLButtonElement
 
-
 const errPass = document.createElement("p")
 const errUser = document.createElement("p")
 loginBtn.disabled = true
@@ -21,6 +20,8 @@ addEventListener("DOMContentLoaded", () => username.focus())
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault()
   if (validCredentials.success) loginHandler(validCredentials.data)
+
+  loginBtn.disabled = true
 })
 cancelBtn.addEventListener("click", resetForm)
 
@@ -40,9 +41,9 @@ function ValidationHandler(
   const credentials = Object.fromEntries(formData)
   validCredentials = loginSchema.safeParse(credentials)
 
-
   if (!validCredentials.success) {
     let rules = validCredentials.error.format()
+
     if (rules[targetLabel]?._errors) {
       loginBtn.disabled = true
       InjectError(rules[targetLabel]!._errors, "user-err", err, target)

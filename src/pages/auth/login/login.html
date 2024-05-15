@@ -4,30 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auth</title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/src/assets/auth0-svgrepo-com.svg"
-    />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/image/logo2.png" />
   </head>
   <body>
     <main class="flex flex-col md:flex-row h-screen">
-      <section class="font-pop overflow-hidden w-full lg:w-[50%]">
-        <div class="flex justify-center items-center overflow-hidden h-full">
-          <img
-            src="/src/assets/log.png"
-            class="object-cover h-full w-full"
-            alt="pharmacie-image"
-          />
-          <!-- <h1
-            class="absolute flex gap-2 text-2xl md:text-lg lg:text-3xl xl:text-4xl z-10 text-wrap bg-green-600 text-white font-medium effect"
-          ></h1> -->
-        </div>
-      </section>
-      <section class="flex items-center justify-center lg:w-[70%] w-full ">
-        <div class="flex flex-col gap-20 lg:gap-10 p-3 h-full w-full justify-center">
+      <section
+        class="flex items-center justify-center order-2 lg:order-1 lg:w-[70%] w-full"
+      >
+        <div
+          class="relative flex flex-col gap-12 lg:gap-10 p-3 h-full w-full justify-center"
+        >
+          <div
+            class="mb-10 hidden lg:flex absolute top-10 left-9 items-center gap-3"
+          >
+            <a
+              href="../../../../index.html"
+              class="-m-1.5 p-1.5 text-lg flex items-center"
+            >
+              <img
+                class="h-8 w-auto"
+                src="/src/assets/image/logo2.png"
+                alt=""
+              />
+              <h1 class="text-md pacifico-regular">PharMaroc</h1>
+            </a>
+          </div>
           <h1
-            class="text-4xl lg:text-5xl text-wrap mt-4 lg:mt-0 font-semibold text-center text-pribg-primary"
+            class="text-3xl lg:text-4xl text-wrap mt-4 lg:mt-20 font-semibold text-center text-pribg-primary"
           >
             Connectez-vous à votre compte
           </h1>
@@ -101,6 +104,42 @@
               >j'ai pas du compte?</a
             >
           </div>
+        </div>
+      </section>
+
+      <!-- TODO: add back button on the image  -->
+      <section
+        class="font-pop overflow-hidden w-full lg:w-[50%] order-1 lg:order-2"
+      >
+        <div
+          class="glass flex justify-center items-center overflow-hidden h-full relative"
+        >
+          <img
+            src="/src/assets/log.png"
+            class="object-cover h-full w-full"
+            alt="pharmacie-image"
+          />
+          <a href="/index.html">
+            <div
+              class="glass absolute left-0 m-6 flex rounded-3xl cursor-pointer gap-2 top-0 p-3 lg:hidden backdrop-blur-sm"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 transition-transform animate-swing"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+                />
+              </svg>
+              <span>revenir</span>
+            </div>
+          </a>
         </div>
       </section>
     </main>

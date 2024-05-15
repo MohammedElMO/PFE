@@ -4,10 +4,11 @@ import { SittingsInfoType } from "schema/setting-into-schema.zod"
 
 export async function updateUserProfileInfo(userInfo: SittingsInfoType) {
   const signUpState = await updateUserInfo(userInfo)
+  
 
   switch (signUpState.state) {
     case "success":
-      InfoToast("Vous avez mis à jour les informations de votre profil avec succès", "success", "center")
+      InfoToast("Vous avez mis à jour les informations de votre profil avec succès", "success", "top-right")
 
       return
     case "failed":

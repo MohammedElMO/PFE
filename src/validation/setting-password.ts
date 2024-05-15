@@ -52,10 +52,7 @@ form.addEventListener("submit", async (e) => {
     InfoToast(
       "Vous devriez remplir les champs correctement",
       "info",
-
       "bottom-right",
-      "",
-      true,
     )
     return
   }
@@ -66,8 +63,6 @@ form.addEventListener("submit", async (e) => {
       "Le mot de passe que vous avez fourni n'est pas correct. Veuillez saisir le bon mot de passe pour le compte.",
       "warning",
       "center",
-      "",
-      false,
     )
   clearErr()
   clearInputs()
@@ -76,8 +71,6 @@ form.addEventListener("submit", async (e) => {
     "Votre mot de passe a été mis à jour avec succès",
     "success",
     "center",
-    "",
-    false,
   )
 })
 

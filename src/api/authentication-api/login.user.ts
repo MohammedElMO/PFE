@@ -11,6 +11,7 @@ import { Routes } from "../../constants/Redirects"
 import Cookies from "js-cookie"
 export const loginHandler = async ({ password, username }: LoginT) => {
   const state = await postUser({ username, password })
+
   switch (state?.state) {
     case "success":
       let conformation = await loginToater(
@@ -19,7 +20,7 @@ export const loginHandler = async ({ password, username }: LoginT) => {
       )
       Cookies.set("jwtToken", state.response!.jwtToken, {
         secure: true,
-        expires:1
+        expires: 1,
       })
 
       if (conformation.isConfirmed) {
@@ -27,7 +28,10 @@ export const loginHandler = async ({ password, username }: LoginT) => {
       }
       return
     case "failed":
-      loginToater("Les identifiants sont incorrects. Veuillez réessayer!", "error")
+      loginToater(
+        "Les identifiants sont incorrects. Veuillez réessayer!",
+        "error",
+      )
       reset([passwordIn, usernameIn])
       return
 

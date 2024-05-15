@@ -4,7 +4,8 @@ export default {
     "./index.html",
     "./src/components/**/*.html",
     "./src/utils/**/*.ts",
-    "./src/pages/**/*.html",
+    "./src/pages/favourites/medicines.html",
+    "./src/pages/**/*.ts",
     "./src/pages/auth/**/*.html",
     "./src/pages/profile/**/*.html",
     "./src/pages/profile/setting.html",
@@ -16,6 +17,8 @@ export default {
     extend: {
       fontFamily: {
         pop: ["Poppins", "sans-serif"],
+        marri: ["Merriweather", "sans-serif"],
+        mont: ["Montserrat", "sans-serif"],
       },
       background: {
         side: `linear-gradient(
@@ -48,5 +51,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar')],
 }
