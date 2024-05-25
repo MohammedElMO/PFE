@@ -41,14 +41,14 @@ export const getFavouriteMedicines = async () => {
       },
     })
     if (res.status !== 200) {
-      InfoToast("quelque chose s'est mal passé", "info", "top-right")
+      InfoToast("quelque chose s'est mal passé", "info", "top-right","",true)
       return
     }
 
     return res.data
   } catch (error) {
     redirectIfNoAuthicated(error)
-    InfoToast("quelque chose s'est mal passé", "info", "top-right")
+    InfoToast("quelque chose s'est mal passé", "info", "top-right","",true)
     return
   }
 }

@@ -10,10 +10,8 @@ export default defineConfig({
   },
   build: {
     outDir: resolve(__dirname, "dist"),
-    target:"es2022",
+    target: "es2022",
     rollupOptions: {
-      
-      
       input: {
         main: resolve("index.html"),
         login: resolve(root, "pages/auth/login/login.html"),
@@ -25,6 +23,7 @@ export default defineConfig({
         medicines: resolve(root, "pages/favourites/medicines.html"),
         map: resolve(root, "pages/map/map.html"),
         settings: resolve(root, "pages/profile/setting.html"),
+        pharmacy: resolve(root, "pages/pharmacy/pharmacy_page.html"),
       },
     },
   },
