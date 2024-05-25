@@ -2,6 +2,7 @@ import { SettingPassT } from "schema/setting-password.zod"
 import apiClient from "../../api-client"
 import Cookies from "js-cookie"
 import { redirectIfNoAuthicated } from "../get/getProfile"
+
 export const changePassword = async (
   passwords: SettingPassT,
 ): Promise<{ state: "success" } | { state: "failed" }> => {

@@ -7,10 +7,10 @@ import "../../utils/drop-down-controle"
 import "../../utils/logIn-out"
 import { deleteFavUserMed } from "../../api/authentication-api/delete-fav-med.user"
 import { deleteMedFav } from "../../api/fetchers/delete/delete-fav-med"
+
 const med = await getFavouriteMedicines()
 const layout = document.querySelector("#layout") as HTMLDivElement
 const main = document.querySelector("#main") as HTMLElement
-const lenghter = med!.Preferer.length
 
 const formatDate = (date: Date) => {
   const formatter = new Intl.DateTimeFormat("fr", {
@@ -25,10 +25,10 @@ const formatDate = (date: Date) => {
 
 const displayUI = (mede: MedicineFavT) => {
   mede.Preferer.map((m, idx) => {
-    m.medicament.Contain.map((p, id) => {
+    m.medicament.Contain.map((p) => {
       const {
         Heure_fermeture,
-        Heure_ouverture,
+        // Heure_ouverture,
         adresse_pharmacie,
         fix_pharmacie,
         lat_pharmacie,
@@ -225,74 +225,81 @@ const displayUI = (mede: MedicineFavT) => {
   })
 }
 
+const deleteMedicine = (mede: MedicineFavT) => {
+  mede.Preferer.map((_, idx) => {
+    const dropDetailsBtn = document.querySelector(
+      `#drop-details-${idx}`,
+    ) as HTMLButtonElement
+    const detailer = document.querySelector(
+      `#detailer-${idx}`,
+    ) as HTMLDivElement
+    const droper = document.querySelector(`#drop-${idx}`) as HTMLDivElement
+    const dotes = document.querySelector(`#choice-${idx}`) as HTMLButtonElement
+    console.log(dropDetailsBtn, detailer, droper, dotes)
+    dropDetailsBtn.addEventListener("click", () => {
+      const isHidden = detailer.classList.contains("hidden")
+      if (isHidden) {
+        detailer.classList.remove("hidden")
+      } else {
+        detailer.classList.add("hidden")
+      }
+    })
+    dotes.addEventListener("click", () => {
+      const isHidden = droper.classList.contains("hidden")
+      if (isHidden) {
+        droper.classList.remove("hidden")
+      } else {
+        droper.classList.add("hidden")
+      }
+    })
+
+    droper.firstElementChild!.addEventListener("click", async () => {
+      const isDeleted = await deleteMedFav(
+        med!.Preferer[idx].medicament.id_medicament,
+      )
+      deleteFavUserMed(isDeleted)
+      window.location.reload()
+    })
+
+    const ShowMore = document.querySelector(
+      `#show-more-${idx}`,
+    ) as HTMLSpanElement
+    const cardDetails = document.querySelector(
+      `#more-info-${idx}`,
+    ) as HTMLDivElement
+
+    ShowMore.addEventListener("click", () => {
+      if (cardDetails.classList.contains("hidden")) {
+        cardDetails.classList.remove("hidden")
+      } else {
+        cardDetails.classList.add("hidden")
+      }
+      if (ShowMore.classList.contains("rotate-90")) {
+        ShowMore.classList.add("-rotate-90")
+        ShowMore.classList.remove("rotate-90")
+      } else {
+        ShowMore.classList.remove("-rotate-90")
+        ShowMore.classList.add("rotate-90")
+      }
+    })
+  })
+}
+
 if (med?.Preferer.length === 0) {
   layout.remove()
   main.classList.add(
+    "h-screen",
     "flex",
     "items-center",
     "justify-center",
     "flex-col",
     "gap-3",
   )
-  main.innerHTML += `
-  <img src="/src/assets/no-fave-found.jpg" class="size-24" alt="no fav were found">
-  <p>aucun médicament favori n'a été trouvé</p>
-  `
+  // main.innerHTML += `
+  // <img src="/src/assets/no-fave-found.jpg" class="size-24" alt="no fav were found">
+  // <p>aucun médicament favori n'a été trouvé</p>
+  // `
 }
-
 
 if (med) displayUI(med)
-
-for (let i = 0; i < lenghter; i++) {
-  const dropDetailsBtn = document.querySelector(
-    `#drop-details-${i}`,
-  ) as HTMLButtonElement
-  const detailer = document.querySelector(`#detailer-${i}`) as HTMLDivElement
-  const droper = document.querySelector(`#drop-${i}`) as HTMLDivElement
-  const dotes = document.querySelector(`#choice-${i}`) as HTMLButtonElement
-
-  dropDetailsBtn.addEventListener("click", () => {
-    const isHidden = detailer.classList.contains("hidden")
-    if (isHidden) {
-      detailer.classList.remove("hidden")
-    } else {
-      detailer.classList.add("hidden")
-    }
-  })
-  dotes.addEventListener("click", () => {
-    const isHidden = droper.classList.contains("hidden")
-    if (isHidden) {
-      droper.classList.remove("hidden")
-    } else {
-      droper.classList.add("hidden")
-    }
-  })
-
-  droper.firstElementChild!.addEventListener("click", async () => {
-    const isDeleted = await deleteMedFav(
-      med!.Preferer[i].medicament.id_medicament,
-    )
-    deleteFavUserMed(isDeleted)
-    window.location.reload()
-  })
-
-  const ShowMore = document.querySelector(`#show-more-${i}`) as HTMLSpanElement
-  const cardDetails = document.querySelector(
-    `#more-info-${i}`,
-  ) as HTMLDivElement
-
-  ShowMore.addEventListener("click", () => {
-    if (cardDetails.classList.contains("hidden")) {
-      cardDetails.classList.remove("hidden")
-    } else {
-      cardDetails.classList.add("hidden")
-    }
-    if (ShowMore.classList.contains("rotate-90")) {
-      ShowMore.classList.add("-rotate-90")
-      ShowMore.classList.remove("rotate-90")
-    } else {
-      ShowMore.classList.remove("-rotate-90")
-      ShowMore.classList.add("rotate-90")
-    }
-  })
-}
+if (med) deleteMedicine(med)

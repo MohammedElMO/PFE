@@ -1,5 +1,4 @@
 import Swal from "sweetalert2"
-import { boolean } from "zod"
 
 export const loginToater = (
   congrats: string,

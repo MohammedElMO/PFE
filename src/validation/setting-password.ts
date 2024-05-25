@@ -58,12 +58,15 @@ form.addEventListener("submit", async (e) => {
   }
   const savePassword = await changePassword(credentials)
 
-  if (savePassword.state === "failed")
-    return InfoToast(
+  if (savePassword.state === "failed") {
+    InfoToast(
       "Le mot de passe que vous avez fourni n'est pas correct. Veuillez saisir le bon mot de passe pour le compte.",
       "warning",
       "center",
     )
+    return
+  }
+
   clearErr()
   clearInputs()
 

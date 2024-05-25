@@ -4,6 +4,7 @@ import apiClient from "../api/api-client"
 import { registerUser } from "../api/authentication-api/sign-up.user"
 import { signupSchema, SignUpType } from "../schema/signup-schema.zod"
 import "../styles/utils.css"
+
 const userNameContainer = document.querySelector(
   ".username-container",
 ) as HTMLDivElement
@@ -63,23 +64,33 @@ email.addEventListener("input", (e) => {
 })
 
 async function checkUserExistence(value: string) {
-  const req = await apiClient.put<{ userFound: boolean }>("/user/username", {
-    username: value,
-  })
-  const { userFound } = req.data
+  try {
+    const req = await apiClient.put<{ userFound: boolean }>("/user/username", {
+      username: value,
+    })
+    const { userFound } = req.data
 
-  if (userFound) {
+    if (userFound) {
+      userNameContainer.innerHTML = nonValidIcon
+      displayError(
+        ["le nom d'utilisateur est déjà pris"],
+        "err",
+        usernameErr,
+        username,
+      )
+    } else {
+      userNameContainer.innerHTML = validIcon
+    }
+    if (userFound) diableBtn("les informations doivent être valides", true)
+  } catch (error) {
     userNameContainer.innerHTML = nonValidIcon
     displayError(
       ["le nom d'utilisateur est déjà pris"],
-      "err", 
+      "err",
       usernameErr,
       username,
     )
-  } else {
-    userNameContainer.innerHTML = validIcon
   }
-  if (userFound) diableBtn("les informations doivent être valides", true)
 }
 
 function ValidationHandler(

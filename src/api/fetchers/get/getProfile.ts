@@ -17,6 +17,10 @@ export const getProfile = async () => {
       },
     })
 
+    if (res.status !== 200) {
+      InfoToast("quelque chose s'est mal passé", "info", "top-right")
+      return
+    }
     return res.data
   } catch (error) {
     redirectIfNoAuthicated(error)

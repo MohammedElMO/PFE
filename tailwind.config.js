@@ -10,6 +10,8 @@ export default {
     "./src/pages/profile/**/*.html",
     "./src/pages/profile/setting.html",
     "./src/pages/profile/*.ts",
+    "./src/pages/map/*.{ts,js}",
+    "./src/pages/pharmacy/pharmacy_page/*.{ts,js}",
   ],
   darkMode: "selector",
 
@@ -51,5 +53,5 @@ export default {
       },
     },
   },
-  plugins: [require('tailwind-scrollbar')],
+  plugins: [require("tailwind-scrollbar")],
 }

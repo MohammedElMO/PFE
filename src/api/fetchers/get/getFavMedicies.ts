@@ -17,8 +17,8 @@ export type MedicineFavT = {
           fix_pharmacie: string
           Heure_ouverture: Date
           Heure_fermeture: Date
-          lat_pharmacie:number
-          lot_pharmacie:number
+          lat_pharmacie: number
+          lot_pharmacie: number
         }
       }[]
     } & {
@@ -40,6 +40,10 @@ export const getFavouriteMedicines = async () => {
         Authorization: Cookies.get("jwtToken"),
       },
     })
+    if (res.status !== 200) {
+      InfoToast("quelque chose s'est mal passé", "info", "top-right")
+      return
+    }
 
     return res.data
   } catch (error) {

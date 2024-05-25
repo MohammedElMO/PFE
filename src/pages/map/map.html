@@ -7,20 +7,23 @@
     <title>PharMaroc</title>
     <!-- font logo -->
 
-    <link rel="stylesheet" href="/all.min.css" />
+    <link rel="stylesheet" href="../../assets/css/all.min.css" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body onload="getMap()">
+  <body>
     <!-- start home page -->
     <!-- start navebar  -->
     <div class="flex flex-col items-center h-screen">
-      <header class="relative inset-x-0 top-0 z-50 container">
+      <header class="sticky top-0 z-50 mb-5 border-b border w-screen">
         <nav
-          class="flex flex-row items-center justify-between p-6 md:px-8"
+          class="flex flex-row z-50 items-center justify-between p-6 md:px-8 w-full backdrop-blur-md"
           aria-label="Global"
         >
           <div class="flex md:flex-1">
-            <a href="#" class="-m-1.5 p-1.5 flex items-center">
+            <a
+              href="../../../index.html"
+              class="-m-1.5 p-1.5 flex items-center"
+            >
               <img
                 class="h-8 w-auto"
                 src="/src/assets/image/logo2.png"
@@ -33,32 +36,36 @@
             <button
               id="open_menu"
               type="button"
-              class="-m-2.5 inline-flex items-center justify-center rounded-md text-gray-700"
+              class="-m-2.5 mr-4 hover:bg-slate-300 inline-flex items-center justify-center rounded-md text-gray-700"
             >
               <span class="sr-only">Open main menu</span>
               <i class="fa-solid fa-bars"></i>
             </button>
           </div>
-          <div class="hidden md:flex md:gap-x-12">
+          <div class="hidden md:flex md:gap-x-12 items-center">
             <a
               href="/index.html"
-              class="text-sm font-semibold leading-6 text-gray-900"
+              class="text-sm font-semibold leading-6 p-2 hover:bg-gray-200 rounded text-gray-900"
               >Home</a
             >
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+            <a
+              href="/src/pages/map/map.html"
+              class="text-sm font-semibold leading-6 p-2 hover:bg-gray-200 rounded text-gray-900"
               >Maps</a
-            >
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-              >Medicament</a
             >
             <a
               href="#"
-              class="text-sm font-semibold leading-6 text-gray-900 relative"
+              class="text-sm font-semibold p-2 hover:bg-gray-200 rounded leading-6 text-gray-900"
+              >Medicament</a
+            >
+            <div
+              class="relative text-sm font-semibold leading-6 p-2 hover:bg-gray-200 rounded text-gray-900"
               id="favorite"
-              ><span>Favorits</span
-              ><i class="fa-solid fa-chevron-down ml-2"></i>
+            >
+              <span>Favorits</span>
+              <i class="fa-solid fa-chevron-down ml-2"></i>
               <div
-                class="absolute hidden flex-col top-14 right-1/4 bg-white"
+                class="absolute flex-col top-14 cursor-pointer -right-[100px] bg-white shadow-md text-nowrap"
                 id="fav_element"
               >
                 <ul>
@@ -66,8 +73,8 @@
                     class="py-2 px-3 rounded-r duration-200 delay-75 ease-in hover:bg-gray-100"
                   >
                     <a
-                      href="#"
-                      class="text-sm font-semibold leading-6 text-gray-900"
+                      href="/src/pages/favourites/pharmacy/pharmacies.html"
+                      class="text-sm font-semibold text-gray-900"
                       >Favorite Pharmacies</a
                     >
                   </li>
@@ -75,14 +82,14 @@
                     class="py-2 px-3 rounded-r duration-200 delay-75 ease-in hover:bg-gray-100"
                   >
                     <a
-                      href="#"
-                      class="text-sm font-semibold leading-6 text-gray-900"
+                      href="/src/pages/favourites/medicines.html"
+                      class="text-sm font-semibold text-gray-900"
                       >Favorite Medicament</a
                     >
                   </li>
                 </ul>
               </div>
-            </a>
+            </div>
           </div>
           <div
             class="hidden md:items-center md:flex md:gap-1 md:flex-1 md:justify-end"
@@ -93,15 +100,15 @@
             >
               <div
                 id="user_elem"
-                class="hidden bg-white absolute w-auto -right-10 top-7 rounded-xl border py-2 px-2 text-sm font-semibold leading-6"
+                class="hidden bg-white absolute w-auto -right-1 top-7 rounded-xl border py-2 px-2 text-sm font-semibold leading-6"
               >
                 <ul class="flex flex-col w-auto text-nowrap">
                   <li
                     class="py-2 px-3 rounded-r text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-100"
-                    id="logIn"
+                    id="log-in"
                   >
                     <a
-                      href=""
+                      href="/src/pages/auth/login/login.html"
                       data-modal-target="authentication-modal"
                       data-modal-toggle="authentication-modal"
                       >Log In</a
@@ -109,15 +116,21 @@
                   </li>
                   <li
                     class="py-2 px-3 rounded-l text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-100"
-                    id="singUp"
+                    id="sign-up"
                   >
-                    <a href="">Sing Up</a>
+                    <a href="/src/pages/auth/signup/signup.html">Sing Up</a>
                   </li>
                   <li
-                    class="hidden py-2 px-3 rounded text-sm hover:bg-slate-200"
-                    id="logOut"
+                    class="py-2 px-3 rounded-l text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-300"
+                    id="settings"
                   >
-                    <a href="">Log Out</a>
+                    <a href="/src/pages/profile/setting.html">Paramètres</a>
+                  </li>
+                  <li
+                    class="hidden py-2 px-3 rounded text-sm hover:bg-red-500 hover:text-white"
+                    id="log-out"
+                  >
+                    <button class="w-full">log Out</button>
                   </li>
                 </ul>
               </div>
@@ -125,11 +138,10 @@
           </div>
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
-        <div class="hidden" id="mobile_mode" style="z-index: 1900">
+        <div class="hidden" id="mobile_mode">
           <!-- Background backdrop, show/hide based on slide-over state. -->
           <div class="fixed inset-0 z-50 bg-[#11111152]"></div>
           <div
-            style="z-index: 1900"
             class="fixed overflow-hidden inset-y-0 right-0 z-50 bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
           >
             <div class="flex items-end justify-end">
@@ -142,18 +154,18 @@
                 <i class="fa-solid fa-x"></i>
               </button>
             </div>
-            <div class="mt-6 flow-root height-[95%]">
+            <div class="mt-6 flow-root h-[95%]">
               <div
                 class="-my-6 divide-y h-full flex flex-col justify-between divide-gray-500/10"
               >
                 <div class="space-y-2 py-6">
                   <a
-                    href="/index.html"
+                    href="/"
                     class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >Home</a
                   >
                   <a
-                    href="#"
+                    href="/src/pages/map/map.html"
                     class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >Maps</a
                   >
@@ -163,75 +175,95 @@
                     >Medicament</a
                   >
                   <a
-                    href="#"
+                    href="/src/pages/favourites/medicines.html"
                     class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >Favorite Pharmacies</a
                   >
                   <a
-                    href="#"
+                    href="/src/pages/favourites/pharmacy/pharmacies.html"
                     class="-mx-3 block rounded-md px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >Favorite Medicament</a
                   >
                 </div>
-                <div class="pt-4 flex flex-col gap-3">
-                  <a
-                    href="#"
-                    class="-mx-3 block border text-center rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
-                    >Log in</a
-                  >
-                  <a
-                    href="#"
-                    class="-mx-3 block border text-center rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
-                    >Sing Up</a
-                  >
-                  <a
-                    href="#"
-                    class="-mx-3 hidden text-center rounded-md p-1 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >Log Out</a
-                  >
-                </div>
+                <ul class="pt-4 flex flex-col gap-3 left-side">
+                  <li id="log-in">
+                    <a
+                      href="/src/pages/auth/login/login.html"
+                      class="-mx-3 block border text-center hover:bg-slate-300 rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
+                      >Log In</a
+                    >
+                  </li>
+                  <li id="sign-up">
+                    <a
+                      class="-mx-3 block border text-center hover:bg-slate-300 rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
+                      href="/src/pages/auth/signup/signup.html"
+                      >Sing Up</a
+                    >
+                  </li>
+                  <li id="settings" class="hidden">
+                    <a
+                      href="/src/pages/profile/setting.html"
+                      class="-mx-3 block border text-center hover:bg-slate-300 rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
+                      >Parametres</a
+                    >
+                  </li>
+
+                  <li id="log-out" class="hidden">
+                    <button
+                      class="hover:bg-red-500 w-full border hover:text-white text-center rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
+                    >
+                      Log Out
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </header>
+
       <!-- end navebar  -->
       <!-- start main  -->
-      <div
-        class="main w-full -z-0 bg-gray-100 h-full container relative shadow-lg shadow-black rounded-xl"
-      >
-        <div
-          class="options absolute z-30 right-0 bg-white rounded-sm flex gap-10"
-        >
-          <select
-            name="search_input"
-            class="search_input border-none outline-none p-3"
-          >
-            <option value="meknes">meknes</option>
-            <option value="rabat">rabat</option>
-            <option value="fes">Fès</option>
-            <option value="nador">nador</option>
-            <option value="casablanca">Casablanca</option>
-            <option value="Tangier">Tangier</option>
-            <option value="marrakech">Marrakech</option>
-            <option value="sale">Sale</option>
-            <option value="oujda">Oujda</option>
-            <option value="Kenitra">Kenitra</option>
-            <option value="Agadir">Agadir</option>
-          </select>
-          <button class="search_btn bg-gray-100 h-full p-3">Searche</button>
+      <div class="main bg-gray-100 h-full container relative rounded-xl">
+        <div class="flex absolute mt-2 mr-2 rounded z-10 flex-col right-0">
+          <div class="form flex text-center">
+            <div class="flex flex-col">
+              <input
+                type="text"
+                id="input_city"
+                placeholder="ville"
+                class="text-center py-1.5 outline-none"
+                readonly
+              />
+              <ul
+                id="list_search"
+                class="hidden bg-white max-h-32 overflow-scroll"
+              ></ul>
+            </div>
+            <button
+              id="btn_city"
+              class="bg_blue_main w-full h-fit py-1.5 px-5 text-white"
+            >
+              search
+            </button>
+          </div>
+          <div
+            id="info_div"
+            class="border border-gray-300 hidden bg-white font-semibold px-2 py-1 w-72"
+          ></div>
         </div>
-        <div class="map w-full h-full absolute rounded-xl" id="map"></div>
+        <div class="map absolute rounded-xl" id="myMap"></div>
       </div>
-      <!-- end main  -->
     </div>
+    <!-- end main  -->
+
     <!-- end home page -->
     <script
-      type="text/javascript"
-      src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap"
       async
+      src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&key=As5c6P3O2nipb09-0KdoLojsb6D8kPQVGOaacyIBRktLNoVIjof4n73pNwxcDRkO"
       defer
     ></script>
-    <script src="/main.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="../../utils/drop-down-controle.ts"></script>
   </body>
 </html>
