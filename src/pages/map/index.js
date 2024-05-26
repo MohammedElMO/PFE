@@ -1,15 +1,24 @@
 import pharmacie from "../data/pharmacie"
-import { favoredIds } from "../data/pharmacie"
 import "../../utils/logIn-out"
 import apiClient from "../../api/api-client"
 import Cookies from "js-cookie"
 import { InfoToast } from "../../notifications/toaster-notifier"
 import "../../utils/logIn-out"
 
-if (!Cookies.get("jwtToken")) {
-  window.location.href = "/"
+let favoredIds
+
+const getIds = async () => {
+  return await apiClient.get("/pharmacy/favouritesIds", {
+    headers: {
+      Authorization: Cookies.get("jwtToken"),
+    },
+  })
 }
 
+if (Cookies.get("jwtToken")) {
+  const res = await getIds()
+  favoredIds = res.data
+}
 let map
 let directionsManager
 
@@ -110,7 +119,9 @@ function showInfoDiv(pharmacy, city) {
   infoDiv.innerHTML = `
         <div class="flex justify-between items-center">
         <h3 class='font-bold my-2'>${pharmacy.name}</h3>
-        <i class="fa-regular fa-star favorit cursor-pointer"></i>
+        <div class="favorit">
+        <i class="fa-regular fa-star cursor-pointer"></i>
+        </div>
         </div>
         <p>Address : <span class="font-light">${pharmacy.add}</span> </p>
         <p>Phone : <span class="font-light">${pharmacy.phone}</span></p>
@@ -121,52 +132,14 @@ function showInfoDiv(pharmacy, city) {
         </div>
     `
   infoDiv.style.display = "block"
-  if (favoredIds.find((p) => p.id_pharmacie === pharmacy.id)) {
-    document.querySelector(".favorit").style.color = "yellow"
-  }
-  function likePharmacy(id) {
-    try {
-      const isFavored = apiClient.post(
-        "/pharmacies/favourites/",
-        {
-          pharmacieId: id,
-        },
-        {
-          headers: {
-            Authorization: Cookies.get("jwtToken"),
-          },
-        },
-      )
-    } catch (error) {
-      InfoToast("une erreur s'est produite", "warning", "top-right")
-    }
-  }
-  function dislikePharmacy(id) {
-    try {
-      const isFavored = apiClient.delete(
-        "/pharmacies/favourites/" + id,
 
-        {
-          headers: {
-            Authorization: Cookies.get("jwtToken"),
-          },
-        },
-      )
-    } catch (error) {
-      InfoToast("une erreur s'est produite", "warning", "top-right")
-    }
-  }
-
-  document.querySelector(".favorit").addEventListener("click", () => {
-    // pharmacy.id
-    if (document.querySelector(".favorit").style.color === "black") {
-      likePharmacy(pharmacy.id)
+  if (favoredIds)
+    if (favoredIds.find((p) => p.id_pharmacie === pharmacy.id)) {
       document.querySelector(".favorit").style.color = "yellow"
-    } else {
-      dislikePharmacy(pharmacy.id)
-      document.querySelector(".favorit").style.color = "black"
     }
-  })
+
+  liker(pharmacy.id)
+
   // Handle click event for route button
   document.querySelector(".rout").addEventListener("click", () => {
     loadDirections(pharmacy)
@@ -230,4 +203,62 @@ function clearDirections() {
 // Initialize the map when the window loads
 window.onload = function () {
   initMap()
+}
+
+async function likePharmacy(id) {
+  try {
+    apiClient.post(
+      "/pharmacies/favourites/",
+      {
+        pharmacieId: id,
+      },
+      {
+        headers: {
+          Authorization: Cookies.get("jwtToken"),
+        },
+      },
+    )
+  } catch (error) {
+    InfoToast("une erreur s'est produite", "warning", "top-right", "", true)
+  }
+}
+async function dislikePharmacy(id) {
+  try {
+    await apiClient.delete(
+      "/pharmacies/favourites/" + id,
+
+      {
+        headers: {
+          Authorization: Cookies.get("jwtToken"),
+        },
+      },
+    )
+  } catch (error) {
+    InfoToast("une erreur s'est produite", "warning", "top-right", "", true)
+  }
+}
+
+function liker(pId) {
+  document.querySelector(".favorit").addEventListener("click", async () => {
+    // pharmacy.id
+    if (Cookies.get("jwtToken")) {
+      if (favoredIds && !favoredIds.find((p) => p.id_pharmacie === pId)) {
+        likePharmacy(pId).then(async () => {
+          favoredIds = (await getIds()).data
+          document.querySelector(".favorit").style.color = "yellow"
+        })
+      } else {
+        dislikePharmacy(pId).then(async () => {
+          favoredIds = (await getIds()).data
+          document.querySelector(".favorit").style.color = "black"
+        })
+      }
+    } else {
+      InfoToast(
+        "vous ne pouvez pas effectuer cette action tant que vous n'êtes pas authentifié",
+        "info",
+        "center",
+      )
+    }
+  })
 }

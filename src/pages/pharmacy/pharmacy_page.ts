@@ -29,7 +29,15 @@ type Pharmacy = {
 }
 const pharmacyUrl = new URLSearchParams(window.location.search)
 const pharmacyId = pharmacyUrl.get("id")
-let medicineIds = await getMedicineFavIds()
+let medicineIds:
+  | {
+      id_medicament: number
+    }[]
+  | undefined
+
+if (Cookies.get("jwtToken")) {
+  medicineIds = await getMedicineFavIds()
+}
 
 async function likeMedicine(id: string | number) {
   try {
@@ -172,28 +180,39 @@ const fn = (
     const star = document.querySelector(
       `#favorit-${id_medicament}`,
     ) as HTMLDivElement
-
-    if (medicineIds?.find((m) => m.id_medicament === id_medicament)) {
-      star.style.color = "yellow"
-    }
+    if (medicineIds)
+      if (medicineIds.find((m) => m.id_medicament === id_medicament)) {
+        star.style.color = "yellow"
+      }
 
     star.addEventListener("click", async () => {
-      if (!medicineIds?.find((m) => m.id_medicament === id_medicament)) {
-        likeMedicine(id_medicament)
-          .then(() => {
-            star.style.color = "yellow"
-          })
-          .catch(() => {
-            star.style.color = "black"
-          })
+      if (Cookies.get("jwtToken")) {
+        if (
+          medicineIds &&
+          !medicineIds?.find((m) => m.id_medicament === id_medicament)
+        ) {
+          likeMedicine(id_medicament)
+            .then(() => {
+              star.style.color = "yellow"
+            })
+            .catch(() => {
+              star.style.color = "black"
+            })
+        } else {
+          dislikeMedicine(id_medicament)
+            .then(() => {
+              star.style.color = "black"
+            })
+            .catch(() => {
+              star.style.color = "yellow"
+            })
+        }
       } else {
-        dislikeMedicine(id_medicament)
-          .then(() => {
-            star.style.color = "black"
-          })
-          .catch(() => {
-            star.style.color = "yellow"
-          })
+        InfoToast(
+          "vous ne pouvez pas effectuer cette action tant que vous n'êtes pas authentifié",
+          "info",
+          "center",
+        )
       }
     })
   })

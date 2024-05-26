@@ -7,6 +7,6 @@ const pharmacie = await apiClient.get("/pharmacy/cities", {
   },
 })
 
-export const favoredIds = pharmacie.data.favoredIds
+// export const favoredIds = pharmacie.data.favoredIds
 
-export default pharmacie.data.groupedPharmacies 
+export default pharmacie.data
