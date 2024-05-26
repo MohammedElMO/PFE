@@ -13,7 +13,7 @@ import { nonValidIcon, validIcon } from "../utils/icons/icons"
 
 
 
-let settings = (await getProfile()) as Settings
+export let settings = (await getProfile()) as Settings
 
 const firstName = document.querySelector("#firstName") as HTMLInputElement
 const lastName = document.querySelector("#lastName") as HTMLInputElement
@@ -30,7 +30,7 @@ if (settings) {
   firstName.value = settings.prenom_utilisateur
   lastName.value = settings.nom_utilisateur
   email.value = settings.email_utilisateur
-  username.value = settings.uesrname
+  username.value = settings.username
 }
 
 let validCredentials: SafeParseReturnType<SittingsInfoType, SittingsInfoType>
@@ -78,7 +78,7 @@ const isChanging = () => {
     firstName.value === settings.prenom_utilisateur &&
     lastName.value === settings.nom_utilisateur &&
     email.value === settings.email_utilisateur &&
-    username.value === settings.uesrname
+    username.value === settings.username
   if (hasChanged) return (saverBtn.disabled = true)
 
   return (saverBtn.disabled = false)

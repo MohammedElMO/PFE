@@ -8,7 +8,7 @@
     <!-- font logo -->
 
     <link rel="stylesheet" href="../../assets/css/all.min.css" />
-    <link rel="stylesheet" href="/src/style.css" />
+    
   </head>
   <body>
     <!-- start home page -->
@@ -124,7 +124,9 @@
                     class="py-2 px-3 rounded-l text-sm leading-3 duration-200 delay-75 ease-in hover:bg-gray-300"
                     id="settings"
                   >
-                    <a href="/src/pages/profile/setting.html">Paramètres</a>
+                    <a href="/src/pages/profile/setting.html"
+                      >informations personnelles</a
+                    >
                   </li>
                   <li
                     class="hidden py-2 px-3 rounded text-sm hover:bg-red-500 hover:text-white"
@@ -204,7 +206,7 @@
                     <a
                       href="/src/pages/profile/setting.html"
                       class="-mx-3 block border text-center hover:bg-slate-300 rounded-md p-1 text-base font-semibold leading-7 text-gray-900"
-                      >Parametres</a
+                      >informations personnelless</a
                     >
                   </li>
 
@@ -232,17 +234,17 @@
                 type="text"
                 id="input_city"
                 placeholder="ville"
-                class="text-center py-1.5 outline-none"
+                class="text-center py-1.5 outline-none border-none"
                 readonly
               />
               <ul
                 id="list_search"
-                class="hidden bg-white max-h-32 overflow-scroll"
+                class="hidden bg-white max-h-32 rounded-s-lg overflow-auto"
               ></ul>
             </div>
             <button
               id="btn_city"
-              class="bg_blue_main w-full h-fit py-1.5 px-5 text-white"
+              class="bg_blue_main w-full text-white h-fit py-1.5 px-5"
             >
               search
             </button>
@@ -261,9 +263,8 @@
     <script
       async
       src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&key=As5c6P3O2nipb09-0KdoLojsb6D8kPQVGOaacyIBRktLNoVIjof4n73pNwxcDRkO"
-      defer
     ></script>
-    <script type="module" src="index.js"></script>
     <script type="module" src="../../utils/drop-down-controle.ts"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>

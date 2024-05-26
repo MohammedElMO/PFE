@@ -4,6 +4,7 @@ import apiClient from "../../api/api-client"
 import Cookies from "js-cookie"
 import { InfoToast } from "../../notifications/toaster-notifier"
 import "../../utils/logIn-out"
+import "../../style.css"
 
 let favoredIds
 
@@ -27,6 +28,7 @@ const listCitys = document.querySelector("#list_search")
 const btn_search = document.querySelector("#btn_city")
 const input_search = document.querySelector("#input_city")
 const infoDiv = document.querySelector("#info_div")
+console.log(listCitys)
 
 async function initMap() {
   navigator.geolocation.getCurrentPosition(function (position) {
@@ -85,7 +87,7 @@ function displayPharmacies(pharmacies, city) {
     )
     const pushpin = new Microsoft.Maps.Pushpin(location, {
       title: pharmacies[pharmacy].name,
-      icon: "../../assets/image/logo3.png",
+      icon: "/src/assets/image/logo2.png",
     })
 
     // Add click event for each pushpin

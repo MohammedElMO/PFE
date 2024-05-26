@@ -5,7 +5,7 @@ import Cookies from "js-cookie"
 export type Settings = {
   nom_utilisateur: string
   prenom_utilisateur: string
-  uesrname: string
+  username: string
   email_utilisateur: string
 }
 
