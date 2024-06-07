@@ -24,6 +24,8 @@ export default defineConfig({
         map: resolve(root, "pages/map/map.html"),
         settings: resolve(root, "pages/profile/setting.html"),
         pharmacy: resolve(root, "pages/pharmacy/pharmacy_page.html"),
+        others: resolve(root, "pages/desktop/desktop.html"),
+
       },
     },
   },
