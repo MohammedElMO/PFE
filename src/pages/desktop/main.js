@@ -1,9 +1,9 @@
-import "../../utils/logIn-out"
+
 function sendEmail() {
     var email = document.getElementById('email').value;
     var message = document.getElementById('message').value;
 
-    emailjs.send('service_1860g8s', 'template_45u8bm7', {
+    emailjs.send('service_0zbjoj8', 'template_7op3r76', {
         email: email,
         message: message
     }).then(function(response) {
