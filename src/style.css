@@ -16,6 +16,7 @@
 }
 body {
   overflow-x: hidden;
+  font-family: "Poppins";
 }
 .customPushpin {
   width: 32px; /* Set your desired width */
