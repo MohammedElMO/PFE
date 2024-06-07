@@ -3,8 +3,7 @@ import "../../utils/logIn-out"
 import apiClient from "../../api/api-client"
 import Cookies from "js-cookie"
 import { InfoToast } from "../../notifications/toaster-notifier"
-import "../../utils/logIn-out"
-import "../../style.css"
+
 
 let favoredIds
 
@@ -87,7 +86,7 @@ function displayPharmacies(pharmacies, city) {
     )
     const pushpin = new Microsoft.Maps.Pushpin(location, {
       title: pharmacies[pharmacy].name,
-      icon: "/src/assets/image/logo2.png",
+      icon: "/src/assets/pin.jpeg",
     })
 
     // Add click event for each pushpin
