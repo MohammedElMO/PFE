@@ -11,7 +11,7 @@ export default {
     "./src/pages/profile/setting.html",
     "./src/pages/profile/*.ts",
     "./src/pages/map/*.{ts,js,html}",
-    "./src/pages/pharmacy/pharmacy_page/*.{ts,js}",
+    "./src/pages/pharmacy/*.{ts,js,html}",
     "./src/pages/desktop/*.{ts,js,html}",
   ],
   darkMode: "selector",
