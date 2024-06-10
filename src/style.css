@@ -55,6 +55,7 @@ body {
 }
 .header_text::before {
   content: "Solution Pharmaceutique";
+margin-top: 20px;
 }
 .phar_text::before {
   content: "PharMaroc";
